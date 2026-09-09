@@ -1,0 +1,27 @@
+# dependinte si build — se refac pe server la fiecare deploy
+node_modules/
+dist/
+
+# fisiere mari de lucru, nu au ce cauta in repo:
+# arhiva template-ului, poza sursa a portretului (varianta procesata
+# sta in public/work/duo.webp) si capturile brute de lucru
+template-07-studio-prism.zip
+poza buna.jpg
+ss/
+
+# Canvas-ul CorelDRAW cu logourile tuturor brandurilor.
+# Sursa logoului OOPS404 e „LOGO UPDATE.pdf”, care ramane versionat.
+LOGO.pdf
+
+# secrete
+.env
+.env.*
+!.env.example
+
+# gunoi de sistem / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
