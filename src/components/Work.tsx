@@ -78,11 +78,11 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
                   <h3 className="display truncate text-[1.35rem] leading-tight text-white">
                     {project.title}
                   </h3>
-                  <p className="meta mt-1 truncate">
+                  <p className="meta mt-1">
                     {project.categoryLabel}
                     {project.status === 'in_progress' && ' · în lucru'}
                   </p>
-                  <p className="mt-2 truncate text-[0.82rem] text-muted">{project.tagline}</p>
+                  <p className="mt-2 line-clamp-2 text-[0.82rem] text-muted">{project.tagline}</p>
                 </div>
 
                 <div className="flex shrink-0 items-baseline gap-4">

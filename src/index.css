@@ -411,11 +411,7 @@ body {
   background: var(--ember);
 }
 
-/*
-  Derularea există doar unde există cu adevărat hover. Pe telefon nu ai cum să
-  stai cu degetul pe cadru, deci acolo rămâne hero-ul site-ului, color, static
-  — tot o dovadă, doar fără spectacol.
-*/
+/* Cu mouse, derularea urmează cursorul. */
 @media (hover: hover) and (pointer: fine) {
   .frame:hover {
     border-color: transparent;
@@ -464,6 +460,67 @@ body {
       transform: none;
       transition: filter 0.4s ease;
     }
+  }
+}
+
+/*
+  Fără mouse nu ai cum să ții degetul pe cadru, așa că derularea pornește singură
+  când fereastra intră în ecran și se întoarce când iese. Clasa `is-playing` vine
+  din SiteFrame, care verifică întâi că dispozitivul chiar n-are hover — altfel
+  două animații s-ar bate pe aceeași imagine.
+*/
+@media (hover: none), (pointer: coarse) {
+  .frame__shot {
+    transform: translateY(0);
+    /* întoarcerea, când iese din ecran */
+    transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .frame__thumb {
+    transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .frame.is-playing .frame__shot,
+  .frame.is-playing .frame__thumb {
+    /* mai lent decât pe desktop: aici nimeni nu a cerut-o, doar se întâmplă */
+    transition: transform 7.5s cubic-bezier(0.4, 0, 0.32, 1) 0.5s;
+  }
+  .frame.is-playing .frame__shot {
+    transform: translateY(var(--shot-travel));
+  }
+  .frame.is-playing .frame__thumb {
+    transform: translateY(var(--thumb-travel));
+  }
+  .frame.is-playing .frame__track {
+    opacity: 1;
+  }
+}
+
+/*
+  Telefon: fereastra devine mai înaltă. La 16/10 rămânea o fâșie de ~220px din
+  care nu se înțelegea nimic din site. Raportul schimbă și cursele — pentru
+  imaginea de 1200x3833 px într-o fereastră 4/5:
+    travel = (3833/1200 − 5/4) / (3833/1200)               = 60,87%
+    thumb  = (5/4) / (3833/1200)                           = 39,13%
+    cursa thumb-ului, raportată la înălțimea LUI = 60,87/39,13 = 155,5%
+*/
+@media (max-width: 639px) {
+  .frame {
+    --shot-travel: -60.87%;
+    --thumb-size: 39.13%;
+    --thumb-travel: 155.5%;
+  }
+  .frame__screen {
+    aspect-ratio: 4 / 5;
+  }
+  .frame__bar {
+    height: 36px;
+    gap: 9px;
+    padding: 0 11px;
+  }
+  /* pe 390px lățime, „În lucru” + adresa nu încap; adresa e mai importantă */
+  .frame__status {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
   }
 }
 
@@ -572,9 +629,32 @@ body {
 }
 
 /* ---------- LOGO ---------- */
+/*
+  Logoul e desenat pentru hârtie: „O”-ul mare e aproape negru, sloganul e gri
+  închis, iar liniile lui „404” sunt roșu subțire. Pe fundalul întunecat al
+  site-ului, jumătate din el pur și simplu dispare.
+
+  Nu îl redesenăm și nu îl recolorăm — îi dăm hârtia pe care a fost gândit.
+  Iese o plachetă crem care, într-un site editorial, arată ca o etichetă tipărită.
+*/
 .logo-link {
   display: inline-block;
   line-height: 0;
+  background: var(--paper);
+  padding: 0.5rem 0.75rem;
+  transition: background 0.4s ease;
+}
+.logo-link:hover {
+  background: #fff;
+}
+/* lockup-ul mare din subsol are nevoie de margini pe măsură */
+.logo-link--mare {
+  padding: 1.1rem 1.4rem;
+}
+/* în secțiunile care sunt deja pe hârtie, încă o placă n-ar avea sens */
+.on-paper .logo-link {
+  background: none;
+  padding: 0;
 }
 
 /* ---------- SCROLLBAR ---------- */

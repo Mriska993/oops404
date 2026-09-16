@@ -15,7 +15,7 @@ export const PROJECTS_DATA: Project[] = [
     description:
       'Creative Operating System care transformă o singură idee în branduri, site-uri și campanii. Workspace complet: proiecte, brand kit, generare de conținut și librărie de template-uri.',
     fullStory:
-      'Produs propriu, încă în construcție. Landing de prezentare plus aplicația din spate: workspace cu proiecte recente, brand kit derivat din identitate, unelte AI de conținut, librărie de template-uri, analytics și export în SVG, PNG și PDF.',
+      'Produs propriu, lansat. Landing de prezentare plus aplicația din spate: workspace cu proiecte recente, brand kit derivat din identitate, unelte AI de conținut, librărie de template-uri, analytics și export în SVG, PNG și PDF.',
     year: '2026',
     tags: ['Workspace', 'Brand Kit', 'AI Content', 'Templates', 'Analytics', 'Export SVG/PNG/PDF'],
     features: [
@@ -32,7 +32,7 @@ export const PROJECTS_DATA: Project[] = [
     image: '/work/rham.webp',
     cover: '/work/covers/rham.webp',
     shot: '/work/shots/rham.webp',
-    status: 'in_progress',
+    status: 'live',
     color: '#E11020',
     paletteSwatches: ['#E11020', '#FF4A4A', '#160A0C', '#070405', '#8A8A93'],
   },

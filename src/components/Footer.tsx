@@ -24,7 +24,7 @@ export const Footer: React.FC = () => (
 
       {/* lockup-ul complet, cu slogan */}
       <div className="reveal mb-14">
-        <Link to="/" className="logo-link" aria-label={`${SITE.name} — acasă`}>
+        <Link to="/" className="logo-link logo-link--mare" aria-label={`${SITE.name} — acasă`}>
           <Logo className="w-[440px] max-w-full" />
         </Link>
       </div>
