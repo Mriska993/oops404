@@ -630,31 +630,18 @@ body {
 
 /* ---------- LOGO ---------- */
 /*
-  Logoul e desenat pentru hârtie: „O”-ul mare e aproape negru, sloganul e gri
-  închis, iar liniile lui „404” sunt roșu subțire. Pe fundalul întunecat al
-  site-ului, jumătate din el pur și simplu dispare.
-
-  Nu îl redesenăm și nu îl recolorăm — îi dăm hârtia pe care a fost gândit.
-  Iese o plachetă crem care, într-un site editorial, arată ca o etichetă tipărită.
+  Fără placă de fundal: varianta din „LOGO OOPS404 ERROR.pdf” e desenată pentru
+  fundal închis — „O”-ul e alb, sloganul e alb, „404” e roșu. Se citește direct
+  pe fundalul site-ului. (Varianta veche era pentru hârtie și avea nevoie de o
+  plachetă crem ca să nu dispară; a rămas în istoricul git.)
 */
 .logo-link {
   display: inline-block;
   line-height: 0;
-  background: var(--paper);
-  padding: 0.5rem 0.75rem;
-  transition: background 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 .logo-link:hover {
-  background: #fff;
-}
-/* lockup-ul mare din subsol are nevoie de margini pe măsură */
-.logo-link--mare {
-  padding: 1.1rem 1.4rem;
-}
-/* în secțiunile care sunt deja pe hârtie, încă o placă n-ar avea sens */
-.on-paper .logo-link {
-  background: none;
-  padding: 0;
+  opacity: 0.75;
 }
 
 /* ---------- SCROLLBAR ---------- */
