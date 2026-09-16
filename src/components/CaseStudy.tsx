@@ -40,14 +40,21 @@ export const CaseStudy: React.FC<Props> = ({ project, onChange, onClose }) => {
   if (!project) return null;
 
   return (
+    /*
+      Fundal opac, nu translucid. Scria `bg-bg/97`, dar 97 nu e in scara de
+      opacitate a lui Tailwind (merge din 5 in 5), deci clasa nu genera nimic si
+      modalul ramanea complet transparent: pagina de dedesubt trecea prin text.
+      Oricum un case study e o pagina de citit, nu un lightbox peste o poza —
+      nu are ce cauta nimic in spatele lui.
+    */
     <div
-      className="fixed inset-0 z-[100] overflow-y-auto bg-bg/97 backdrop-blur-md"
+      className="fixed inset-0 z-[100] overflow-y-auto bg-bg"
       role="dialog"
       aria-modal="true"
       aria-label={`Case study ${project.title}`}
     >
       {/* bara de sus */}
-      <div className="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-bg/90 px-[4%] py-4 backdrop-blur-xl">
+      <div className="sticky top-0 z-10 flex items-center justify-between border-b border-line bg-bg px-[4%] py-4">
         <span className="meta">
           {String(index + 1).padStart(2, '0')} / {String(PROJECTS_DATA.length).padStart(2, '0')}
         </span>
