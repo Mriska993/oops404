@@ -9,7 +9,7 @@ Ultima actualizare: **{{actualizat}}**
 
 Documentul ăsta explică ce se întâmplă cu datele tale când intri pe {{domeniu}}. L-am scris ca să fie citit, nu ca să bifeze o casetă: dacă ceva sună vag, scrie-ne și îl rescriem mai clar.
 
-Pe scurt, înainte de detalii: **site-ul ăsta nu are conturi, nu are coș de cumpărături și nu are o bază de date cu vizitatori.** Formularul de contact nu trimite nimic către un server de-al nostru — deschide aplicația ta de email cu mesajul deja completat, iar tu decizi dacă apeși „trimite”. Singurele lucruri care se adună automat sunt logurile serverului și, **doar dacă accepți**, statisticile Google Analytics.
+Pe scurt, înainte de detalii: **site-ul ăsta nu are conturi, nu are coș de cumpărături și nu are o bază de date cu vizitatori.** Formularul de contact nu trimite nimic către un server de-al nostru — deschide aplicația ta de email cu mesajul deja completat, iar tu decizi dacă apeși „trimite”. Serverul nu ține nici măcar un jurnal al vizitelor — e oprit din configurație. Singurul lucru care se adună automat, și doar **dacă accepți**, sunt statisticile Google Analytics.
 
 ## Cine răspunde de datele tale
 
@@ -32,12 +32,14 @@ Nu avem un responsabil cu protecția datelor (DPO) desemnat și nici nu suntem o
 
 ### Logurile serverului
 
-Ca orice server web, al nostru notează fiecare cerere: adresa IP, momentul, pagina cerută, codul de răspuns, browserul și sistemul de operare (user agent) și, uneori, pagina de pe care ai venit.
+Majoritatea serverelor web notează fiecare cerere: adresa IP, momentul, pagina cerută, browserul. **Al nostru nu.** Jurnalul de acces e oprit din configurație, așa că vizitele obișnuite nu lasă nicio urmă pe server.
 
-- **De ce:** ca să ținem site-ul în picioare, să vedem erorile și să oprim abuzurile (scanări automate, încercări de forțare).
-- **Temeiul legal:** interesul nostru legitim de a avea un site funcțional și sigur — art. 6 alin. (1) lit. (f) GDPR.
-- **Cât le ținem:** exact cât le ține rotirea automată a serverului — logurile vechi se suprascriu singure, fără intervenția noastră. Nu le arhivăm, nu le copiem și nu le scoatem de pe server.
-- **Nu le folosim** ca să construim profiluri și nu le legăm de altceva.
+Rămâne activ doar jurnalul de erori. Acolo ajunge ceva abia când chiar se strică ceva — o pagină care nu se poate livra, o cerere malformată — iar înregistrarea poate include adresa IP de la care a venit cererea.
+
+- **De ce:** ca să vedem ce s-a rupt și să putem repara. E singurul motiv.
+- **Temeiul legal:** interesul nostru legitim de a avea un site care funcționează — art. 6 alin. (1) lit. (f) GDPR.
+- **Cât îl ținem:** exact cât îl ține rotirea automată a serverului — înregistrările vechi se suprascriu singure. Nu îl arhivăm, nu îl copiem și nu îl scoatem de pe server.
+- **Nu îl folosim** ca să construim profiluri și nu îl legăm de altceva. Nici n-am avea ce: nu există un jurnal de vizite cu care să-l punem cap la cap.
 
 ### Formularul de contact și butoanele de WhatsApp
 
@@ -89,7 +91,7 @@ Nu vindem date. Nu le dăm nimănui pentru marketing. Ajung la alții doar atât
 
 | Cine | Pentru ce | Unde |
 | --- | --- | --- |
-| {{hostingFurnizor}} | găzduirea site-ului și logurile de acces | {{hostingTara}} |
+| {{hostingFurnizor}} | găzduirea site-ului și jurnalul de erori | {{hostingTara}} |
 | Google Ireland Ltd. | **doar dacă accepți** statisticile: Google Analytics | UE, cu transferuri în SUA |
 | Meta Platforms Ireland Ltd. | doar dacă ne scrii pe WhatsApp | UE, cu transferuri în SUA |
 
@@ -121,7 +123,7 @@ Site-ul se adresează persoanelor și firmelor care caută servicii de dezvoltar
 
 ## Cum ținem datele în siguranță
 
-Site-ul se încarcă exclusiv prin HTTPS. Serverul e actualizat și accesul la el e limitat la persoanele care îl administrează. Nu ținem o bază de date cu vizitatori, ceea ce e cea mai bună protecție posibilă: **ce nu există nu poate fi furat.**
+Site-ul se încarcă exclusiv prin HTTPS. Serverul e actualizat și accesul la el e limitat la persoanele care îl administrează. Nu ținem o bază de date cu vizitatori și nici un jurnal al vizitelor, ceea ce e cea mai bună protecție posibilă: **ce nu există nu poate fi furat.**
 
 Niciun sistem nu e perfect. Dacă totuși se întâmplă o breșă care îți poate afecta drepturile, anunțăm autoritatea în 72 de ore și te anunțăm și pe tine, direct, dacă riscul e ridicat.
 
