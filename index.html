@@ -32,5 +32,56 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!--
+      PLASA DE SIGURANTA PENTRU HTML VECHI DIN CACHE
+
+      Problema pe care o rezolva: browserul poate pastra un index.html dintr-un
+      build anterior. Acela cere un bundle JS al carui nume contine hash-ul
+      continutului — fisier care, dupa un deploy nou, nu mai exista pe server.
+      Cererea da 404 si pagina ramane complet fara JavaScript.
+
+      Iar pentru ca paginile sunt prerandate, pagina arata perfect intreaga. Doar
+      ca nimic nu mai raspunde: meniul nu face nimic, case study-ul nu se
+      deschide, bannerul nu apare. Inainte de prerender, acelasi defect dadea
+      pagina alba si se vedea imediat.
+
+      Ce facem: `main.tsx` ridica steagul de mai jos cand aplicatia porneste.
+      Daca la 2,5 secunde dupa `load` steagul e tot jos, cerem HTML-ul din nou
+      OCOLIND cache-ul (`cache: 'reload'` reimprospateaza si intrarea din cache),
+      apoi reincarcam. A doua oara pornim pe bundle-ul corect.
+
+      Se incearca o singura data per fila: fara steagul din sessionStorage, o
+      pagina care oricum nu porneste ar intra in bucla de reincarcari.
+      `main.tsx` sterge steagul la pornire reusita, ca plasa sa functioneze si
+      la urmatorul deploy.
+
+      Nu inlocuieste anteturile corecte de cache (vezi deploy/nginx.conf) — dar
+      merge si daca acelea lipsesc, si nu depinde de nimeni.
+    -->
+    <script>
+      (function () {
+        var CHEIE = 'oops404-reincarcat';
+
+        function verifica() {
+          if (window.__oops404Pornit) return;
+          try {
+            if (sessionStorage.getItem(CHEIE)) return;
+            sessionStorage.setItem(CHEIE, '1');
+          } catch (e) {
+            return; // fara sessionStorage nu avem cum sa evitam bucla
+          }
+          fetch(location.href, { cache: 'reload' })
+            .catch(function () {})
+            .then(function () {
+              location.reload();
+            });
+        }
+
+        addEventListener('load', function () {
+          setTimeout(verifica, 2500);
+        });
+      })();
+    </script>
   </body>
 </html>
