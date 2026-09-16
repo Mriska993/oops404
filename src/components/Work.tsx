@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectArt } from './ProjectArt';
+import { SiteFrame } from './SiteFrame';
 
 const FILTERS = [
   { id: 'all', label: 'Toate' },
@@ -21,7 +22,7 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
     <section id="work" className="scroll-mt-20 border-t border-line-soft py-24 sm:py-28">
       <div className="shell">
         {/* controls */}
-        <div className="reveal mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-line-soft pb-5">
+        <div className="reveal mb-4 flex flex-wrap items-center justify-between gap-4 border-b border-line-soft pb-5">
           <span className="eyebrow">Proiecte proprii</span>
           <div className="flex flex-wrap gap-6">
             {FILTERS.map((f) => (
@@ -36,15 +37,18 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
           </div>
         </div>
 
-        {/*
-          Capturile sunt late (~2.17:1). Cadrul trebuie sa aiba acelasi raport,
-          altfel taie site-ul in doua. Doua pe rand pe desktop, unul pe mobil.
-        */}
-        <div className="grid gap-x-5 gap-y-10 lg:grid-cols-2">
+        {/* invitatia la hover — altfel derularea trece neobservata */}
+        <p className="reveal mb-10 hidden text-[0.78rem] text-dim lg:block">
+          Capturi reale ale site-urilor, luate de pe domeniile live. Ține cursorul pe o fereastră ca
+          să o derulezi până jos; click deschide site-ul.
+        </p>
+
+        {/* doua ferestre pe rand pe desktop, una pe mobil */}
+        <div className="grid gap-x-6 gap-y-12 lg:grid-cols-2">
           {visible.map((project, i) => (
             <article
               key={project.id}
-              className="reveal"
+              className="reveal min-w-0"
               style={{ transitionDelay: `${Math.min(i, 4) * 70}ms` }}
             >
               {/*
@@ -58,36 +62,18 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
                   rel="noreferrer"
                   data-cursor="DESCHIDE ↗"
                   aria-label={`Deschide ${project.title} într-o filă nouă`}
-                  className="tile block aspect-[21/9] w-full"
+                  className="block"
                 >
-                  <ProjectArt project={project} index={i} src={project.cover ?? project.image} />
-
-                  <div className="tile__overlay">
-                    <p className="text-[0.85rem] leading-relaxed text-white/80">{project.tagline}</p>
-                    <span className="mt-3 inline-block text-[0.7rem] font-bold uppercase tracking-wider2 text-ember-soft">
-                      {project.liveUrl.replace(/^https?:\/\//, '')} ↗
-                    </span>
-                  </div>
+                  <Preview project={project} index={i} />
                 </a>
               ) : (
-                <div
-                  onClick={() => onOpenProject(project)}
-                  data-cursor="CASE STUDY"
-                  className="tile aspect-[21/9] w-full"
-                >
-                  <ProjectArt project={project} index={i} src={project.cover ?? project.image} />
-
-                  <div className="tile__overlay">
-                    <p className="text-[0.85rem] leading-relaxed text-white/80">{project.tagline}</p>
-                    <span className="mt-3 inline-block text-[0.7rem] font-bold uppercase tracking-wider2 text-white">
-                      Vezi case study ↗
-                    </span>
-                  </div>
+                <div onClick={() => onOpenProject(project)} data-cursor="CASE STUDY">
+                  <Preview project={project} index={i} />
                 </div>
               )}
 
-              {/* legenda sub captura, ca la o plansa dintr-o revista */}
-              <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-line-soft pt-3">
+              {/* legenda sub fereastra, ca la o plansa dintr-o revista */}
+              <div className="mt-4 flex items-start justify-between gap-4 border-t border-line-soft pt-3">
                 <div className="min-w-0">
                   <h3 className="display truncate text-[1.35rem] leading-tight text-white">
                     {project.title}
@@ -96,6 +82,7 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
                     {project.categoryLabel}
                     {project.status === 'in_progress' && ' · în lucru'}
                   </p>
+                  <p className="mt-2 truncate text-[0.82rem] text-muted">{project.tagline}</p>
                 </div>
 
                 <div className="flex shrink-0 items-baseline gap-4">
@@ -122,3 +109,19 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
     </section>
   );
 };
+
+/**
+ * Cu o captura a site-ului live arata fereastra de browser care se deruleaza.
+ * Fara ea (proiect nou, inca necapturat) ramane placa editoriala de dinainte.
+ */
+const Preview: React.FC<{ project: Project; index: number }> = ({ project, index }) =>
+  project.shot ? (
+    <SiteFrame project={project} />
+  ) : (
+    <div className="tile aspect-[21/9] w-full">
+      <ProjectArt project={project} index={index} src={project.cover ?? project.image} />
+      <div className="tile__overlay">
+        <p className="text-[0.85rem] leading-relaxed text-white/80">{project.tagline}</p>
+      </div>
+    </div>
+  );

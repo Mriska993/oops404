@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FAQ_DATA } from '../data/portfolioData';
-import { SITE, whatsappLink, NAV_LINKS } from '../data/site';
-import { Logo } from './Logo';
+import { SITE, whatsappLink } from '../data/site';
 
 const BUDGETS = ['< 1.000 €', '1.000 – 2.500 €', '2.500 – 5.000 €', '5.000 € +', 'nu știu încă'];
 
-/** FAQ + formular + footer, în ritmul editorial al template-ului. */
+/** FAQ + formular. Subsolul a plecat în `Footer.tsx`: e același pe toate paginile. */
 export const Contact: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<string | null>(FAQ_DATA[0]?.id ?? null);
 
@@ -197,51 +197,27 @@ export const Contact: React.FC = () => {
                 {sent === 'wa' && 'Se deschide WhatsApp cu mesajul completat.'}
                 {!sent && 'Răspundem în maximum 24h. De obicei mult mai repede.'}
               </p>
+
+              {/*
+                GDPR cere ca omul să afle ce se întâmplă cu datele lui CHIAR ACOLO unde
+                le dă, nu într-o pagină pe care nimeni n-o deschide. Aici e și un
+                avantaj real de spus: formularul nu trimite nimic către un server.
+              */}
+              <p className="text-[0.78rem] leading-relaxed text-dim">
+                Formularul nu trimite nimic către noi: deschide aplicația ta de email — sau
+                WhatsApp, prin care mesajul trece pe la Meta — cu textul deja completat, iar tu
+                decizi dacă îl trimiți. Ce ne scrii folosim doar ca să-ți răspundem și, dacă mergem
+                mai departe, ca să pregătim o ofertă.{' '}
+                <Link to="/confidentialitate" className="link-draw text-muted">
+                  Cum tratăm datele
+                </Link>
+                .
+              </p>
             </form>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-line py-20">
-        <div className="shell">
-          <div className="reveal mb-20">
-            <span className="eyebrow mb-4 block">Disponibili pentru proiecte noi</span>
-            <a
-              href={`mailto:${SITE.email}`}
-              className="display block break-all text-[clamp(1.9rem,5.5vw,4.6rem)] text-white transition-opacity hover:opacity-70"
-            >
-              {SITE.email.toUpperCase()} ↗
-            </a>
-          </div>
-
-          {/* lockup-ul complet, cu slogan */}
-          <div className="reveal mb-10">
-            <a href="#top" className="logo-link" aria-label="OOPS404 — sus">
-              <Logo className="w-[440px] max-w-full" />
-            </a>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-6 border-t border-line-soft pt-7">
-            <span className="meta">
-              © {new Date().getFullYear()} {SITE.name} · „{SITE.slogan}”
-            </span>
-
-            <nav className="flex flex-wrap gap-x-6 gap-y-2">
-              {NAV_LINKS.map((l) => (
-                <a key={l.id} href={l.href} className="meta transition-colors hover:text-white">
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-
-            {/* Fara retele sociale: exista doar conturi personale. */}
-            <a href={`mailto:${SITE.email}`} className="meta transition-colors hover:text-white">
-              {SITE.email}
-            </a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 };

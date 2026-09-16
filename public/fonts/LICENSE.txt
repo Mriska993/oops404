@@ -1,0 +1,15 @@
+Fonturile din acest folder sunt redistribuite sub SIL Open Font License 1.1,
+care permite explicit găzduirea lor pe serverul propriu.
+
+  Bodoni Moda — © 2020 Indestructible Type Foundry
+                https://github.com/indestructible-type/Bodoni
+
+  Syne        — © 2017 Bonjour Monde / Lucas Descroix
+                https://github.com/bonjourmonde/syne_typeface
+
+Textul complet al licenței: https://openfontlicense.org
+(sau fișierul OFL.txt din fiecare depozit de mai sus)
+
+Fișierele .woff2 de aici sunt subseturi (latin + latin-ext) generate de Google
+Fonts și descărcate de `node scripts/fetch-fonts.mjs`. Nu le edita manual —
+rulează scriptul din nou.

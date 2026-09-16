@@ -1,6 +1,8 @@
 # dependinte si build — se refac pe server la fiecare deploy
 node_modules/
 dist/
+# bundle-ul folosit doar la prerender, sters dupa build
+dist-ssr/
 
 # fisiere mari de lucru, nu au ce cauta in repo:
 # arhiva template-ului, poza sursa a portretului (varianta procesata

@@ -28,10 +28,13 @@ export const whatsappLink = (msg = 'Salut Oops404! As vrea sa vorbim despre un p
   `https://wa.me/${SITE.phones[0].wa}?text=${encodeURIComponent(msg)}`;
 
 export const NAV_LINKS = [
-  { label: `Work [0${PROJECTS_DATA.length}]`, href: '#work', id: 'work' },
-  { label: 'Ce facem', href: '#services', id: 'services' },
-  { label: 'Proces', href: '#process', id: 'process' },
-  { label: 'Duo', href: '#duo', id: 'duo' },
-  { label: 'Buget', href: '#budget', id: 'budget' },
-  { label: 'Contact', href: '#contact', id: 'contact' },
+  // Caile sunt absolute (/#work, nu #work): din /blog sau /termeni, un hash simplu
+  // n-ar duce nicaieri. ScrollManager din App.tsx face derularea dupa schimbarea rutei.
+  { label: `Work [0${PROJECTS_DATA.length}]`, href: '/#work', id: 'work' },
+  { label: 'Ce facem', href: '/#services', id: 'services' },
+  { label: 'Proces', href: '/#process', id: 'process' },
+  { label: 'Duo', href: '/#duo', id: 'duo' },
+  { label: 'Buget', href: '/#budget', id: 'budget' },
+  { label: 'Blog', href: '/blog', id: 'blog' },
+  { label: 'Contact', href: '/#contact', id: 'contact' },
 ];

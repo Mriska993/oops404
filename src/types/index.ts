@@ -18,8 +18,13 @@ export interface Project {
   liveUrl?: string;
   /** Captura reală a produsului, din public/work/. Apare in case study. */
   image?: string;
-  /** Coperta generata, din public/work/covers/. Apare in grila. */
+  /** Coperta generata, din public/work/covers/. Fundal de rezerva. */
   cover?: string;
+  /**
+   * Captura full-page a site-ului live, din public/work/shots/ (1200x3833).
+   * Asta e ce se vede in grila: se deruleaza in cadrul de browser la hover.
+   */
+  shot?: string;
   status: 'live' | 'in_progress';
   /** Culoarea dominantă a proiectului, luată din capturi. */
   color: string;

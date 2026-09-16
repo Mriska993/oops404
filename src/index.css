@@ -1,3 +1,6 @@
+/* Fonturile, găzduite local. Generate de scripts/fetch-fonts.mjs. */
+@import './styles/fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -266,6 +269,208 @@ body {
   text-transform: uppercase;
 }
 
+/* ---------- CADRU DE BROWSER cu captura care se derulează ----------
+   Preview-ul din grilă nu mai e o poză de atmosferă, ci captura reală a
+   site-ului live. La hover urcă prin toată pagina, iar bara din dreapta
+   coboară ca un scrollbar adevărat.
+
+   Toate capturile din public/work/shots/ au 1200x3833 px, fereastra e 1440x900.
+   De acolo ies cifrele de mai jos — nu le atinge fără să reîncadrezi capturile:
+     travel = (3833/1200 − 900/1440) / (3833/1200)          = 80,43%
+     thumb  = (1200·900/1440) / 3833                        = 19,57%
+     cursa thumb-ului, raportată la înălțimea LUI = 80,43/19,57 = 411%
+*/
+.frame {
+  --shot-travel: -80.43%;
+  --thumb-size: 19.57%;
+  --thumb-travel: 411%;
+  --shot-tint: var(--ember);
+
+  position: relative;
+  /* captura are 1200px nativi: fără asta ar umfla coloana pe ecrane mici */
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--alt);
+  border: 1px solid var(--line-soft);
+  cursor: pointer;
+  transition: box-shadow 0.5s ease, border-color 0.45s ease;
+}
+/* conturul ember, ca la celelalte plăci */
+.frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border: 1px solid var(--ember);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* bara de sus */
+.frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-soft);
+}
+.frame__dots {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+.frame__dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.45s ease;
+}
+.frame__url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.32);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: color 0.45s ease, background 0.45s ease;
+}
+.frame__url::after {
+  content: ' ↗';
+  opacity: 0.5;
+}
+.frame__status {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 7px;
+  color: var(--dim);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.frame__status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--dim);
+  border-radius: 50%;
+}
+.frame__status.is-live {
+  color: var(--muted);
+}
+.frame__status.is-live::before {
+  border-color: var(--ember);
+  background: var(--ember);
+  animation: live-pulse 2.6s ease-out infinite;
+}
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(228, 80, 31, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(228, 80, 31, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(228, 80, 31, 0); }
+}
+
+/* fereastra */
+.frame__screen {
+  position: relative;
+  aspect-ratio: 1440 / 900;
+  overflow: hidden;
+  background: #000;
+}
+.frame__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* scrollbar-ul care însoțește derularea */
+.frame__track {
+  position: absolute;
+  top: 8px;
+  right: 7px;
+  bottom: 8px;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.frame__thumb {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: var(--thumb-size);
+  background: var(--ember);
+}
+
+/*
+  Derularea există doar unde există cu adevărat hover. Pe telefon nu ai cum să
+  stai cu degetul pe cadru, deci acolo rămâne hero-ul site-ului, color, static
+  — tot o dovadă, doar fără spectacol.
+*/
+@media (hover: hover) and (pointer: fine) {
+  .frame:hover {
+    border-color: transparent;
+    box-shadow: 0 34px 80px -34px color-mix(in srgb, var(--shot-tint) 60%, transparent);
+  }
+  .frame:hover .frame__dots i:first-child {
+    background: var(--ember);
+  }
+  .frame:hover .frame__url {
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+  }
+  .frame__shot {
+    filter: grayscale(100%) contrast(106%);
+    transform: translateY(0);
+    /* întoarcerea, când pleacă mouse-ul: scurtă și moale */
+    transition: filter 0.6s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  .frame__thumb {
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :is(.frame:hover, a:focus-visible > .frame)::after {
+    opacity: 0.9;
+  }
+  :is(.frame:hover, a:focus-visible > .frame) .frame__shot {
+    filter: grayscale(0%) contrast(100%);
+    transform: translateY(var(--shot-travel));
+    /* derularea: pornește după o clipă, apoi merge aproape liniar până la subsol */
+    transition: filter 0.5s ease, transform 6.5s cubic-bezier(0.38, 0, 0.28, 1) 0.2s;
+  }
+  :is(.frame:hover, a:focus-visible > .frame) .frame__track {
+    opacity: 1;
+  }
+  :is(.frame:hover, a:focus-visible > .frame) .frame__thumb {
+    transform: translateY(var(--thumb-travel));
+    transition: transform 6.5s cubic-bezier(0.38, 0, 0.28, 1) 0.2s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .frame__shot,
+    .frame__thumb,
+    :is(.frame:hover, a:focus-visible > .frame) .frame__shot,
+    :is(.frame:hover, a:focus-visible > .frame) .frame__thumb {
+      transform: none;
+      transition: filter 0.4s ease;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame__status.is-live::before { animation: none; }
+}
+
 /* ---------- RÂND editorial (tabelul de tip „awards") ---------- */
 .row {
   display: grid;
@@ -386,4 +591,173 @@ body {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- TEXT LUNG (articole de blog + documente legale) ----------
+   Singurul loc din site unde se citește cu adevărat, nu se scanează. De aceea
+   măsura e limitată la ~68 de caractere, iar textul e mai deschis la culoare decât
+   --muted, care e bun pentru o legendă de trei cuvinte și obositor pentru trei pagini.
+*/
+.prose-editorial {
+  max-width: 68ch;
+  color: rgba(250, 250, 250, 0.78);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+.prose-editorial > * + * {
+  margin-top: 1.35em;
+}
+
+.prose-editorial h2,
+.prose-editorial h3 {
+  font-family: 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--white);
+  scroll-margin-top: 6rem;
+}
+.prose-editorial h2 {
+  margin-top: 2.6em;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+}
+.prose-editorial h3 {
+  margin-top: 2em;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+}
+/* primul titlu vine imediat după intro; fără asta ar atârna prea jos */
+.prose-editorial > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.prose-editorial strong {
+  color: var(--white);
+  font-weight: 700;
+}
+.prose-editorial em {
+  font-style: italic;
+}
+
+.prose-editorial a {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--ember);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+.prose-editorial a:hover {
+  color: var(--ember-soft);
+  text-decoration-color: var(--ember-soft);
+}
+
+.prose-editorial ul,
+.prose-editorial ol {
+  padding-left: 1.4rem;
+}
+.prose-editorial li + li {
+  margin-top: 0.55em;
+}
+.prose-editorial ul > li {
+  list-style: none;
+  position: relative;
+}
+/* liniuța din listă, în loc de bulină: aceeași familie de semne ca restul site-ului */
+.prose-editorial ul > li::before {
+  content: '—';
+  position: absolute;
+  left: -1.4rem;
+  color: var(--ember);
+}
+.prose-editorial ol {
+  list-style: decimal;
+}
+.prose-editorial ol > li::marker {
+  color: var(--ember);
+  font-weight: 700;
+}
+
+.prose-editorial blockquote {
+  margin-top: 2.2em;
+  margin-bottom: 2.2em;
+  padding-left: 1.6rem;
+  border-left: 1px solid var(--ember);
+  font-family: 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--white);
+}
+.prose-editorial blockquote p {
+  margin: 0;
+}
+
+/* tabelele sunt înguste pe telefon; le lăsăm să se deruleze în loc să le strivim */
+.prose-editorial table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.prose-editorial th,
+.prose-editorial td {
+  padding: 0.7rem 1rem 0.7rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+  vertical-align: top;
+}
+.prose-editorial th {
+  border-bottom-color: var(--line);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.prose-editorial code {
+  padding: 0.14em 0.42em;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  color: var(--ember-soft);
+}
+.prose-editorial pre {
+  overflow-x: auto;
+  padding: 1.25rem 1.4rem;
+  background: var(--alt);
+  border: 1px solid var(--line-soft);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.prose-editorial pre code {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: rgba(250, 250, 250, 0.82);
+  font-size: inherit;
+}
+
+.prose-editorial hr {
+  margin: 2.8em 0;
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.prose-editorial img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line-soft);
+}
+
+/* subsolul unui document legal: „Ultima actualizare” e o dată, nu un paragraf */
+.prose-editorial > p:first-child {
+  color: var(--muted);
+  font-size: 0.88rem;
 }

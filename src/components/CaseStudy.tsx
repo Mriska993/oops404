@@ -98,7 +98,7 @@ export const CaseStudy: React.FC<Props> = ({ project, onChange, onClose }) => {
 
         {/* vizual */}
         <div className="tile mb-10 aspect-[2.17/1] w-full">
-          <ProjectArt project={project} index={index} src={project.image ?? project.cover} />
+          <ProjectArt project={project} index={index} src={project.shot ?? project.image ?? project.cover} />
         </div>
 
         {/* meta */}
