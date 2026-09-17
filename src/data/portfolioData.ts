@@ -128,7 +128,7 @@ export const ESTIMATOR_PROJECT_TYPES: EstimatorOption[] = [
   {
     id: 'revamp',
     label: 'Redesign & Optimizare Site Existent',
-    description: 'Upgrade vizual cinematic, viteză 10x, curățare cod',
+    description: 'Upgrade vizual, optimizare de viteză, curățare cod',
     basePrice: 450,
     durationWeeks: 1,
   }
