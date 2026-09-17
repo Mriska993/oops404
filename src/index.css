@@ -127,9 +127,12 @@ body {
 */
 .display em {
   font-family: 'Syne', sans-serif;
-  font-weight: 800;
+  /* Syne se lățește mult odată cu grosimea: la 800 cuvântul ieșea prea întins.
+     700 + corp puțin mai mic + spațiere mai strânsă = același accent, mai îngust. */
+  font-weight: 700;
+  font-size: 0.95em;
   font-style: normal;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.045em;
   background-image: linear-gradient(90deg, var(--em-a) 0%, var(--em-b) 58%, var(--em-c) 100%);
   -webkit-background-clip: text;
   background-clip: text;
