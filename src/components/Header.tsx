@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, SITE } from '../data/site';
 import { Logo } from './Logo';
 
 export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTerminal }) => {
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  // inaltimea header-ului, masurata la deschidere: panoul incepe exact sub el
+  const [headerH, setHeaderH] = useState(0);
 
   useEffect(() => {
+    if (open && headerRef.current) setHeaderH(headerRef.current.offsetHeight);
     document.body.style.overflow = open ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
@@ -14,7 +19,7 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-xl">
+    <header ref={headerRef} className="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-xl">
       <div className="shell flex items-center justify-between py-5">
         {/* logo */}
         <Link to="/" className="logo-link" aria-label="OOPS404 — acasă">
@@ -68,9 +73,14 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
         </button>
       </div>
 
-      {/* meniu mobil */}
-      {open && (
-        <div className="fixed inset-x-0 bottom-0 top-[73px] z-40 overflow-y-auto bg-bg lg:hidden">
+      {/* meniu mobil — randat in <body>, NU in header: `backdrop-filter` face din
+          header containing block pentru `position: fixed`, asa ca panoul ramanea
+          inchis in cei 85px ai header-ului si nu se vedea deloc. */}
+      {open && createPortal(
+        <div
+          className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-bg lg:hidden"
+          style={{ top: headerH }}
+        >
           <div className="shell py-8">
             {NAV_LINKS.map((l, i) => (
               <Link
@@ -99,7 +109,8 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
               Scrie-ne
             </a>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </header>
   );
