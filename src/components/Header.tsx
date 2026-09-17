@@ -89,7 +89,7 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
                 onClick={() => setOpen(false)}
                 className="flex items-baseline justify-between border-b border-line-soft py-5"
               >
-                <span className="display text-[2rem]">{l.label}</span>
+                <span className="text-[1.5rem] text-white">{l.label}</span>
                 <span className="meta">0{i + 1}</span>
               </Link>
             ))}
@@ -101,7 +101,7 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
               }}
               className="flex w-full items-baseline justify-between border-b border-line-soft py-5"
             >
-              <span className="display text-[2rem]">Terminal</span>
+              <span className="text-[1.5rem] text-white">Terminal</span>
               <span className="meta">0{NAV_LINKS.length + 1}</span>
             </button>
 
