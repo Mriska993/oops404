@@ -32,7 +32,7 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
             <Link
               key={l.id}
               to={l.href}
-              className="text-[0.75rem] font-bold uppercase tracking-wider2 text-muted transition-colors hover:text-white"
+              className="text-[0.95rem] text-muted transition-colors hover:text-white"
             >
               {l.label}
             </Link>
@@ -40,7 +40,7 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
           <button
             onClick={onOpenTerminal}
             data-cursor="RUN"
-            className="text-[0.75rem] font-bold uppercase tracking-wider2 text-muted transition-colors hover:text-white"
+            className="text-[0.95rem] text-muted transition-colors hover:text-white"
           >
             Terminal
           </button>
