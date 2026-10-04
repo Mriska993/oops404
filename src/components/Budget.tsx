@@ -48,10 +48,9 @@ export const Budget: React.FC = () => {
               <em>fără să ne suni.</em>
             </h2>
           </div>
-          <p className="text-[0.98rem] leading-relaxed text-muted">
-            Bifează ce ai nevoie și vezi pe loc un interval real. Nu e o ofertă finală, e punctul de
-            plecare cinstit, ca să știi dacă avem ce discuta.{' '}
-            <span className="text-white">Nimic din ce bifezi nu pleacă nicăieri: calculul se face în browserul tău.</span>
+          <p className="text-[0.95rem] leading-relaxed text-muted">
+            Bifează ce ai nevoie și vezi pe loc un interval real, care nu e o ofertă, ci un punct de
+            plecare cinstit, iar calculul se face în browserul tău, fără ca nimic să plece nicăieri.
           </p>
         </div>
 
@@ -66,13 +65,13 @@ export const Budget: React.FC = () => {
                   <button
                     key={t.id}
                     onClick={() => setTypeId(t.id)}
-                    className={`flex w-full items-center gap-5 rounded-soft border-b border-line-soft px-3 py-5 text-left transition-colors ${
-                      on ? 'bg-white/[0.05]' : 'hover:bg-white/[0.025]'
+                    className={`flex w-full items-center gap-5 border-b border-line-soft py-5 text-left transition-colors ${
+                      on ? 'bg-white/[0.04]' : 'hover:bg-white/[0.02]'
                     }`}
                   >
                     <span
-                      className={`size-3.5 shrink-0 rounded-full border-2 transition-colors ${
-                        on ? 'border-ember bg-ember' : 'border-white/30'
+                      className={`size-3 shrink-0 rounded-full border transition-colors ${
+                        on ? 'border-white bg-white' : 'border-white/30'
                       }`}
                     />
                     <span className="flex-1">
@@ -101,13 +100,13 @@ export const Budget: React.FC = () => {
                     key={a.id}
                     disabled={!typeId}
                     onClick={() => toggle(a.id)}
-                    className={`flex w-full items-center gap-5 rounded-soft border-b border-line-soft px-3 py-4 text-left transition-colors disabled:cursor-not-allowed ${
-                      on ? 'bg-white/[0.05]' : 'enabled:hover:bg-white/[0.025]'
+                    className={`flex w-full items-center gap-5 border-b border-line-soft py-4 text-left transition-colors disabled:cursor-not-allowed ${
+                      on ? 'bg-white/[0.04]' : 'enabled:hover:bg-white/[0.02]'
                     }`}
                   >
                     <span
-                      className={`grid size-4 shrink-0 place-items-center rounded-[5px] border text-[9px] text-white transition-colors ${
-                        on ? 'border-ember bg-ember' : 'border-white/30'
+                      className={`grid size-3.5 shrink-0 place-items-center border text-[8px] text-black transition-colors ${
+                        on ? 'border-white bg-white' : 'border-white/30'
                       }`}
                     >
                       {on ? '✓' : ''}
@@ -124,7 +123,7 @@ export const Budget: React.FC = () => {
 
           {/* rezultat */}
           <aside className="lg:sticky lg:top-24">
-            <div className="card p-7">
+            <div className="border border-line p-7">
               <span className="eyebrow">Estimare</span>
 
               {result ? (
@@ -168,7 +167,7 @@ export const Budget: React.FC = () => {
                 Trimite pe WhatsApp
               </a>
 
-              <p className="mt-4 text-center text-[0.8rem] text-dim">Fără obligații. Răspundem în aceeași zi, ca oamenii.</p>
+              <p className="meta mt-4 text-center">Fără obligații · răspundem în aceeași zi, ca oamenii</p>
             </div>
           </aside>
         </div>

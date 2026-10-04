@@ -5,16 +5,15 @@ export default {
     extend: {
       colors: {
         // Paleta template-ului studio-prism, ridicată puțin ca să nu fie o gaură neagră.
-        // Negru cald, de cafea, nu gri rece: aceleași valori ca --bg/--alt/... din index.css
-        bg: '#141110',
-        alt: '#1A1614',
-        surface: '#231E1A',
-        paper: '#F6F0E6',
-        line: 'rgba(255,236,220,0.14)',
-        'line-soft': 'rgba(255,236,220,0.08)',
-        white: '#FBF8F3',
-        muted: '#A89E94',
-        dim: '#7C7269',
+        bg: '#0E0E11',
+        alt: '#16161A',
+        surface: '#1C1C21',
+        paper: '#F4F2ED',
+        line: 'rgba(255,255,255,0.13)',
+        'line-soft': 'rgba(255,255,255,0.07)',
+        white: '#FAFAFA',
+        muted: '#8E8E99',
+        dim: '#6A6A75',
         signal: '#22C55E',
         // Din logo: portocaliul-roșu de pe „s", roșul liniilor „404", cărămiziul din mijlocul gradientului.
         ember: '#E4501F',
@@ -26,12 +25,6 @@ export default {
       fontFamily: {
         display: ['Fraunces', 'Georgia', 'serif'],
         sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-      },
-      borderRadius: {
-        // razele „moi" ale site-ului; aceleași valori ca --r-* din index.css
-        soft: '14px',
-        card: '24px',
-        hero: '32px',
       },
       letterSpacing: {
         wider2: '0.12em',

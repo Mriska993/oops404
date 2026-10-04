@@ -6,28 +6,28 @@ const STEPS = [
     n: '01',
     title: 'Vorbim ca oamenii',
     time: '30 min',
-    text: 'Ne spui ce vrei să construiești, chiar dacă ideea e încă la stadiul de „ceva de genul...”. Punem întrebări, tăiem ce nu are sens, îți spunem sincer dacă merită sau nu.',
+    text: 'Ne spui ce vrei, chiar dacă deocamdată e doar „ceva de genul…”, iar noi punem întrebări, tăiem ce nu are sens și îți spunem sincer dacă merită sau nu, pentru că uneori chiar nu merită.',
     out: 'Brief clar + estimare de preț și timp',
   },
   {
     n: '02',
     title: 'Îți arătăm cum arată',
     time: '2–4 zile',
-    text: 'Primești un design real, nu un PDF cu wireframe-uri gri. Îl vezi în browser, pe telefon, îl critici, îl schimbăm. Nu trecem mai departe până nu îți place.',
+    text: 'Primești un design adevărat, nu un PDF cu dreptunghiuri gri, pe care îl deschizi pe telefon, îl arăți cui vrei și îl critici, iar noi îl schimbăm până îți place, abia apoi scriem cod.',
     out: 'Design interactiv + link de preview',
   },
   {
     n: '03',
     title: 'Construim la vedere',
     time: '1–4 săptămâni',
-    text: 'Cod scris de la zero, în sprinturi. Ai un link de staging pe care vezi progresul în fiecare zi. Fără surprize la final, fără „mai durează o săptămână”.',
+    text: 'Scriem codul de la zero, în pași mici, iar tu ai un link pe care vezi progresul în fiecare zi, fără surprize la final și fără „mai durează o săptămână”.',
     out: 'Produs funcțional, testat pe toate ecranele',
   },
   {
     n: '04',
     title: 'Lansăm și rămânem',
     time: 'și după',
-    text: 'Punem totul pe servere rapide, configurăm domeniul, SEO, analytics. Îți facem un video de 5 minute cum administrezi tot. Și rămânem disponibili după.',
+    text: 'Punem totul pe servere rapide, configurăm domeniul, Google și statisticile, și îți înregistrăm un video de 5 minute cu tot ce ai nevoie să știi. Și rămânem după, pentru că dacă se strică ceva peste două luni, tot noi răspundem.',
     out: 'Site live + acces complet + suport',
   },
 ];
@@ -48,9 +48,9 @@ export const Process: React.FC = () => (
             la <em>„uite, e live!”</em>
           </h2>
         </div>
-        <p className="text-[0.98rem] leading-relaxed text-black/60">
-          Fără contracte de 40 de pagini, fără ședințe care nu duc nicăieri. Patru pași, fiecare cu
-          un rezultat pe care îl poți vedea și atinge, și cu noi la telefon tot drumul.
+        <p className="text-[0.95rem] leading-relaxed text-black/60">
+          Fără contracte de 40 de pagini și fără ședințe care nu duc nicăieri, doar patru pași,
+          fiecare cu un rezultat pe care îl poți vedea, și cu noi la telefon tot drumul.
         </p>
       </div>
 
@@ -62,14 +62,16 @@ export const Process: React.FC = () => (
             style={{ transitionDelay: `${i * 80}ms` }}
           >
             <div>
-              <span className="text-[0.72rem] font-bold uppercase tracking-widest2 text-black/40">
+              <span className="gilt text-[0.72rem] font-bold uppercase tracking-widest2">
                 {s.n}
               </span>
             </div>
 
             <div>
               <h3 className="display text-[1.7rem] leading-tight text-ink">{s.title}</h3>
-              <span className="sticker mt-3 !text-[0.72rem]">⏱ {s.time}</span>
+              <span className="mt-1.5 inline-block text-[0.72rem] font-bold uppercase tracking-wider2 text-black/45">
+                {s.time}
+              </span>
             </div>
 
             <div>

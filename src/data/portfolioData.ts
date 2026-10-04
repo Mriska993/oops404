@@ -8,13 +8,13 @@ export const SERVICES_DATA: Service[] = [
     id: 'web-os',
     number: '01',
     title: 'Site-uri care spun o poveste',
-    tagline: 'Prima impresie durează trei secunde. Facem să conteze.',
-    description: 'Site-uri de prezentare și portofolii desenate de la zero, pentru afacerea ta și pentru oamenii care o caută. Rapide, calde, cu fiecare detaliu la locul lui, ca vizitatorul să rămână, să citească și să-ți scrie.',
+    tagline: 'Ai trei secunde până își face omul o părere. Le folosim bine.',
+    description: 'Site-uri de prezentare și portofolii desenate de la zero, pornind de la ce ai tu de spus, nu de la un șablon. Sunt rapide și aerisite, cu fiecare detaliu la locul lui, așa încât omul care intră să rămână, să citească și să-ți scrie.',
     deliverables: [
-      'Design arhitectural unic (Mobile / Tablet / Desktop)',
-      'Optimizare extremă SEO & Core Web Vitals (99/100)',
-      'Animații cinematice fluide fără frame drops',
-      'Sistem flexibil de administrare conținut'
+      'Design unic, gândit întâi pentru telefon, apoi pentru restul ecranelor',
+      'Se încarcă instant și îl găsește Google (Core Web Vitals pe verde)',
+      'Animații fine, care nu sacadează și nu obosesc',
+      'Un panou simplu din care îți schimbi singur textele și pozele'
     ],
     techStack: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Motion'],
     iconName: 'Layout'
@@ -23,13 +23,13 @@ export const SERVICES_DATA: Service[] = [
     id: 'app-os',
     number: '02',
     title: 'Aplicații care țin o afacere în picioare',
-    tagline: 'De la o schiță pe șervețel la o platformă pe care te poți baza.',
-    description: 'Aplicații web, panouri de administrare, platforme cu conturi și plăți. Arhitectură gândită să crească odată cu tine și cod scris să fie înțeles și peste doi ani, de oricine.',
+    tagline: 'De la o schiță pe șervețel la ceva pe care te bazezi în fiecare zi.',
+    description: 'Aplicații web, panouri de administrare, platforme cu conturi, plăți și rapoarte, construite să crească odată cu tine, cu un cod scris destul de clar încât peste doi ani să-l înțeleagă oricine.',
     deliverables: [
-      'Autentificare securizată (OAuth, Passkeys, Magic Links)',
-      'Baze de date optimizate (PostgreSQL, Supabase, Redis)',
-      'Dashboard-uri interactive de analiză și gestiune',
-      'Arhitectură Cloud rezistentă la trafic mare'
+      'Conturi și autentificare sigură: parolă, Google, link pe email sau passkey',
+      'Baze de date care rămân rapide și când ai de zece ori mai mulți utilizatori',
+      'Panouri de administrare în care vezi dintr-o privire ce contează',
+      'Servere care nu cad exact când ți-e lumea mai dragă'
     ],
     techStack: ['Node.js', 'PostgreSQL', 'Supabase', 'React', 'Docker'],
     iconName: 'Code2'
@@ -39,12 +39,12 @@ export const SERVICES_DATA: Service[] = [
     number: '03',
     title: 'Magazine online în care e plăcut să cumperi',
     tagline: 'Coș simplu, plată fără emoții, comenzi care ajung singure la curier.',
-    description: 'Magazine rapide pe orice ecran, cu checkout scurt și plăți sigure cu cardul sau Apple/Google Pay. Tu te ocupi de produse și de clienți, restul merge singur.',
+    description: 'Magazine rapide pe orice ecran, cu un checkout simplu și plăți sigure cu cardul, Apple Pay sau Google Pay, în care tu te ocupi de produse și de clienți, iar restul merge singur.',
     deliverables: [
-      'Checkout optimizat în 1-2 pași',
-      'Integrare plăți (Stripe, Netopia, PayU, Apple Pay)',
-      'Management produse, promoții, cupoane și stocuri',
-      'Sincronizare cu firme de curierat (AWB automat)'
+      'Checkout în 1-2 pași, fără cont obligatoriu',
+      'Plăți cu cardul, Apple Pay și Google Pay (Stripe, Netopia, PayU)',
+      'Produse, promoții, cupoane și stocuri, toate dintr-un singur loc',
+      'AWB-ul la curier se generează singur când intră comanda'
     ],
     techStack: ['Next.js', 'Stripe', 'Tailwind', 'Webhook Engine', 'Analytics'],
     iconName: 'ShoppingBag'
@@ -52,14 +52,14 @@ export const SERVICES_DATA: Service[] = [
   {
     id: 'experience-os',
     number: '04',
-    title: 'Un suflu nou pentru un site obosit',
-    tagline: 'Ai deja un site, dar nu-ți mai place de el? Îl aducem la zi.',
-    description: 'Ne uităm cu atenție la ce ai acum, găsim unde pierzi oamenii și reconstruim experiența: mai clară, mai rapidă, mai a ta. Fără să o iei de la zero dacă nu e nevoie.',
+    title: 'Site-ul tău, adus la zi',
+    tagline: 'Ai deja un site, dar nu-ți mai place de el? Te înțelegem. Îl refacem.',
+    description: 'Ne uităm cu atenție la ce ai acum, aflăm unde pierzi oamenii și refacem ce trebuie, mai clar, mai rapid și mai al tău, fără să o iei de la zero dacă nu e nevoie și fără să-ți pierzi locul din Google.',
     deliverables: [
-      'Audit UX detaliat & identificare blocaje conversie',
-      'Design System modern & prototipuri interactive',
-      'Refactorizare cod pentru încărcare ultra-rapidă',
-      'Testare pe toate dispozitivele și browserele'
+      'Audit sincer: unde se blochează oamenii și de ce pleacă',
+      'Design nou, cu prototip pe care îl testezi înainte să scriem cod',
+      'Viteză: cod curățat, imagini optimizate, scor verde în Google',
+      'Testat pe telefoane, tablete și browsere adevărate, nu doar în simulator'
     ],
     techStack: ['Figma', 'Modern CSS', 'Performance Profiling', 'A/B Testing'],
     iconName: 'Sparkles'
@@ -74,7 +74,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: 'faq-1',
     question: 'De ce sloganul "No clue, but somehow it works"?',
-    answer: 'Pentru că e adevărat, și pentru că ne place să râdem de noi. Nu suntem o corporație cu răspunsuri gata scrise. Suntem doi oameni curioși și încăpățânați, care nu se lasă până când lucrul pe care l-au promis chiar funcționează. Sloganul e felul nostru de a spune: relaxează-te, se rezolvă.',
+    answer: 'Pentru că e adevărat, și pentru că ne place să râdem de noi. Nu suntem o corporație cu răspunsuri gata scrise. Suntem doi oameni curioși și încăpățânați, care nu se lasă până când lucrul pe care l-au promis chiar funcționează. Sloganul e felul nostru de a spune: nu știm încă totul, dar nu ne lăsăm până merge.',
     tag: 'Despre noi'
   },
   {
@@ -127,7 +127,7 @@ export const ESTIMATOR_PROJECT_TYPES: EstimatorOption[] = [
   },
   {
     id: 'revamp',
-    label: 'Un suflu nou pentru site-ul actual',
+    label: 'Redesign pentru site-ul actual',
     description: 'Aspect nou, viteză mai bună, cod curățat',
     basePrice: 450,
     durationWeeks: 1,

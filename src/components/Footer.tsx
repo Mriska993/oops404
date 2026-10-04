@@ -14,14 +14,11 @@ export const Footer: React.FC = () => (
     <div className="shell">
       <div className="reveal mb-20">
         <span className="eyebrow mb-4 block">Mai avem loc pentru un proiect frumos</span>
-        <p className="display mb-5 max-w-3xl text-[clamp(1.9rem,4.6vw,3.6rem)]">
-          Hai să facem ceva de care să-ți fie <em>drag</em>.
-        </p>
         <a
           href={`mailto:${SITE.email}`}
-          className="link-draw inline-block break-all text-[clamp(1.1rem,2.4vw,1.5rem)] font-semibold text-white"
+          className="display block break-all text-[clamp(1.3rem,3vw,2.4rem)] text-white transition-opacity hover:opacity-70"
         >
-          {SITE.email} ↗
+          {SITE.email.toUpperCase()} ↗
         </a>
       </div>
 

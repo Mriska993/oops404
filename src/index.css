@@ -6,39 +6,31 @@
 @tailwind utilities;
 
 /* =========================================================
-   OOPS404 — cald, moale, uman. Ca mirosul de cafea proaspătă care te trage
-   de pe stradă în cafenea: asta trebuie să facă site-ul cu cine îl deschide.
-
-   Limbajul: Fraunces la titluri (serif cu curbe, italic adevărat pentru
-   cuvântul care contează), Plus Jakarta Sans la text (rotunjit, prietenos),
-   negru cald de cafea în loc de gri rece, colțuri rotunjite, umbre moi,
-   o lumină ember care respiră în spatele titlului, stickere în loc de
-   etichete tehnice. Accentul rămâne unul singur, din logo: ember.
-   Logoul în sine e imaginea din public/brand, 1:1.
+   OOPS404 — editorial, pe limbajul template-ului studio-prism,
+   cu identitatea din logo: Fraunces la titluri (serif moale, cu curbe, italic
+   adevărat pe cuvântul care contează — se leagă de „Oops"-ul serif din logo),
+   Plus Jakarta Sans la text (rotunjit, prietenos, lizibil pe telefon);
+   monocrom + un singur accent cald (portocaliul-roșu de pe „s"-ul din logo),
+   grayscale care se colorează la hover. Logoul în sine e imaginea din public/brand, 1:1.
    ========================================================= */
 
 :root {
   color-scheme: dark;
 
-  /* negru cald, nu gri rece: ca lemnul închis dintr-o cafenea bună */
-  --bg: #141110;
-  --alt: #1A1614;
-  --surface: #231E1A;
-  --paper: #F6F0E6;
-  --white: #FBF8F3;
-  --muted: #A89E94;
-  --dim: #7C7269;
-  --line: rgba(255, 236, 220, 0.14);
-  --line-soft: rgba(255, 236, 220, 0.08);
+  --bg: #0E0E11;
+  --alt: #16161A;
+  --surface: #1C1C21;
+  --paper: #F4F2ED;
+  --white: #FAFAFA;
+  --muted: #8E8E99;
+  --dim: #6A6A75;
+  --line: rgba(255, 255, 255, 0.13);
+  --line-soft: rgba(255, 255, 255, 0.07);
 
-  /* razele „moi" — aceleași în tailwind.config.js (rounded-soft/card/hero) */
-  --r-sm: 14px;
-  --r: 24px;
-  --r-lg: 32px;
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  /* umbra pufoasă, colorată — ca la 3bobite, dar în culoarea noastră */
-  --shadow-ember: 0 22px 50px -20px rgba(228, 80, 31, 0.55);
-  --shadow-soft: 0 30px 60px -32px rgba(0, 0, 0, 0.85);
+  /* auriu, folosit rar: numerele secțiunilor și linia de sub titlul din hero */
+  --gold: #D4B47A;
+  --gold-soft: #F1DFB4;
+  --gold-deep: #9C7A3C;
 
   /* din logo */
   --ember: #E4501F;
@@ -52,7 +44,7 @@
   --em-b: #EFB496;
   --em-c: #E4501F;
   /* copia decalată de sub cuvânt, ca tiparul ieșit din registru din logo */
-  --ghost: rgba(255, 255, 255, 0.12);
+  --ghost: rgba(255, 255, 255, 0.16);
 }
 
 /* Secțiunile pe hârtie folosesc exact gradientul originalului: cărbune → cărămiziu → ember. */
@@ -60,7 +52,7 @@
   --em-a: #1B1917;
   --em-b: #7A4A35;
   --em-c: #E4501F;
-  --ghost: rgba(27, 25, 23, 0.12);
+  --ghost: rgba(27, 25, 23, 0.16);
   --muted: rgba(27, 25, 23, 0.6);
   --dim: rgba(27, 25, 23, 0.42);
   --line: rgba(27, 25, 23, 0.18);
@@ -79,7 +71,7 @@ body {
   background-color: var(--bg);
   color: var(--white);
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
@@ -168,141 +160,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ember-soft);
-}
-
-/* ---------- STICKERE, BULE, CARDURI, LUMINĂ ----------
-   Piesele care dau căldură: etichete-sticker în loc de meta tehnic, o bulă
-   care plutește peste poză, carduri rotunjite care se ridică la hover și o
-   lumină ember care respiră în spatele titlului. Toate decorative, toate
-   se opresc la prefers-reduced-motion.
-*/
-.sticker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45em;
-  padding: 0.55em 1em;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255, 236, 220, 0.04);
-  color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-  transition: transform 0.4s var(--ease), border-color 0.3s ease;
-}
-.sticker:hover {
-  transform: translateY(-2px) rotate(-1.5deg);
-  border-color: var(--ember);
-}
-.sticker--ember {
-  border-color: transparent;
-  background: linear-gradient(135deg, var(--ember), var(--ember-soft));
-  color: #fff;
-  box-shadow: var(--shadow-ember);
-}
-.on-paper .sticker {
-  background: rgba(27, 25, 23, 0.04);
-  color: var(--ink);
-}
-
-.bubble {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6em;
-  max-width: calc(100% - 2rem);
-  padding: 0.7em 1.1em;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 236, 220, 0.18);
-  background: rgba(20, 17, 16, 0.78);
-  backdrop-filter: blur(10px);
-  color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.3;
-  box-shadow: var(--shadow-soft);
-}
-.bubble__dot {
-  flex-shrink: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22C55E;
-  animation: pulse-green 2.6s ease-out infinite;
-}
-.bubble--float {
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-@keyframes pulse-green {
-  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
-  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-
-.card {
-  border-radius: var(--r);
-  border: 1px solid var(--line-soft);
-  background: var(--surface);
-  transition: transform 0.5s var(--ease), border-color 0.4s ease, box-shadow 0.5s ease;
-}
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--line);
-  box-shadow: var(--shadow-soft), 0 0 0 1px rgba(228, 80, 31, 0.12);
-}
-.on-paper .card {
-  background: rgba(255, 255, 255, 0.55);
-  border-color: var(--line-soft);
-}
-
-/* poza mare din hero: colorată, caldă, cu colțuri moi */
-.photo {
-  overflow: hidden;
-  border-radius: var(--r-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
-}
-.photo__img {
-  display: block;
-  filter: saturate(0.92) sepia(0.08);
-  transition: transform 1.2s var(--ease), filter 0.6s ease;
-}
-.photo:hover .photo__img {
-  transform: scale(1.025);
-  filter: saturate(1) sepia(0);
-}
-
-.glow {
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.6;
-}
-.glow--hero {
-  top: -140px;
-  left: -120px;
-  width: min(72vw, 820px);
-  aspect-ratio: 1;
-  background: radial-gradient(closest-side, rgba(228, 80, 31, 0.45), rgba(228, 80, 31, 0.12) 45%, transparent 72%);
-  animation: breathe 10s ease-in-out infinite;
-}
-.glow--contact {
-  right: -160px;
-  bottom: -200px;
-  width: min(60vw, 640px);
-  aspect-ratio: 1;
-  background: radial-gradient(closest-side, rgba(240, 115, 63, 0.3), transparent 70%);
-}
-@keyframes breathe {
-  0%, 100% { transform: scale(1) translate(0, 0); }
-  50% { transform: scale(1.12) translate(40px, 16px); }
+  color: var(--muted);
 }
 
 .meta {
@@ -311,6 +169,22 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--dim);
+}
+
+/* ---------- AURIU, ici-colo ----------
+   Un accent metalic, ca o foiță de aur pe o copertă: gradient de la bronz la
+   auriu deschis, pus pe text (numerele secțiunilor) și pe o singură linie.
+   Nu intră în concurență cu ember: ember e pentru acțiune, auriul e decor.
+*/
+.gilt {
+  background-image: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold-soft) 45%, var(--gold) 70%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.rule-gilt {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, var(--gold) 0%, rgba(212, 180, 122, 0.35) 45%, transparent 100%) 1;
 }
 
 /* ---------- LAYOUT ---------- */
@@ -336,8 +210,7 @@ body {
   left: 0;
   bottom: -3px;
   width: 100%;
-  height: 2px;
-  border-radius: 2px;
+  height: 1px;
   background: var(--ember);
   transform: scaleX(0);
   transform-origin: right;
@@ -375,7 +248,6 @@ body {
 .tile {
   position: relative;
   overflow: hidden;
-  border-radius: var(--r);
   background: #000;
   cursor: pointer;
 }
@@ -394,7 +266,6 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
   border: 1px solid var(--ember);
   opacity: 0;
   pointer-events: none;
@@ -450,12 +321,10 @@ body {
   min-width: 0;
   max-width: 100%;
   overflow: hidden;
-  border-radius: 18px;
   background: var(--alt);
   border: 1px solid var(--line-soft);
-  box-shadow: var(--shadow-soft);
   cursor: pointer;
-  transition: box-shadow 0.5s ease, border-color 0.45s ease, transform 0.6s var(--ease);
+  transition: box-shadow 0.5s ease, border-color 0.45s ease;
 }
 /* conturul ember, ca la celelalte plăci */
 .frame::after {
@@ -463,7 +332,6 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  border-radius: inherit;
   border: 1px solid var(--ember);
   opacity: 0;
   pointer-events: none;
@@ -577,7 +445,6 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .frame:hover {
     border-color: transparent;
-    transform: translateY(-4px);
     box-shadow: 0 34px 80px -34px color-mix(in srgb, var(--shot-tint) 60%, transparent);
   }
   .frame:hover .frame__dots i:first-child {
@@ -700,40 +567,34 @@ body {
   transition: background 0.35s ease, padding-left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .row:hover {
-  background: rgba(255, 236, 220, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   padding-left: 12px;
-  border-radius: var(--r-sm);
-  box-shadow: inset 3px 0 0 var(--ember);
+  box-shadow: inset 2px 0 0 var(--ember);
 }
 @media (min-width: 900px) {
   .row { grid-template-columns: 110px 1fr 1.25fr; align-items: baseline; gap: 24px; }
 }
 
-/* ---------- BUTOANE: pastile moi, care se lasă puțin când apeși ---------- */
+/* ---------- BUTOANE ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 15px 28px;
-  border-radius: 999px;
-  font-size: 0.92rem;
+  padding: 14px 26px;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   border: 1px solid var(--line);
   background: transparent;
   color: var(--white);
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease,
-              transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .btn:hover {
   background: var(--white);
   border-color: var(--white);
   color: #000;
-  transform: translateY(-2px);
-}
-.btn:active {
-  transform: scale(0.97);
 }
 .btn--solid {
   background: var(--white);
@@ -747,16 +608,14 @@ body {
 }
 /* butonul principal: ember, ca „s"-ul din logo */
 .btn--ember {
-  background: linear-gradient(135deg, var(--ember), var(--ember-soft));
-  border-color: transparent;
+  background: var(--ember);
+  border-color: var(--ember);
   color: #fff;
-  box-shadow: var(--shadow-ember);
 }
 .btn--ember:hover {
-  background: linear-gradient(135deg, var(--ember-soft), var(--ember));
-  border-color: transparent;
-  color: #fff;
-  box-shadow: 0 26px 60px -20px rgba(228, 80, 31, 0.75);
+  background: var(--white);
+  border-color: var(--white);
+  color: #000;
 }
 /* varianta pentru secțiunea pe hârtie */
 .btn--ink {
@@ -772,21 +631,19 @@ body {
 /* ---------- CÂMPURI ---------- */
 .field {
   width: 100%;
-  padding: 14px 18px;
-  background: rgba(255, 236, 220, 0.035);
-  border: 1px solid var(--line);
-  border-radius: var(--r-sm);
+  padding: 13px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
   color: var(--white);
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 0.95rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 .field::placeholder { color: var(--dim); }
 .field:focus {
   outline: none;
-  border-color: var(--ember);
-  background: rgba(255, 236, 220, 0.05);
-  box-shadow: 0 0 0 4px rgba(228, 80, 31, 0.16);
+  border-bottom-color: var(--ember);
 }
 
 /* ---------- REVEAL la scroll ---------- */
@@ -831,7 +688,6 @@ body {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
-  .glow--hero, .bubble--float, .bubble__dot { animation: none; }
 }
 
 /* ---------- TEXT LUNG (articole de blog + documente legale) ----------
@@ -968,7 +824,6 @@ body {
 
 .prose-editorial code {
   padding: 0.14em 0.42em;
-  border-radius: 6px;
   background: var(--surface);
   border: 1px solid var(--line-soft);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -978,7 +833,6 @@ body {
 .prose-editorial pre {
   overflow-x: auto;
   padding: 1.25rem 1.4rem;
-  border-radius: var(--r-sm);
   background: var(--alt);
   border: 1px solid var(--line-soft);
   font-size: 0.85rem;

@@ -1,76 +1,57 @@
 import React from 'react';
 import { SITE } from '../data/site';
-import { PROJECTS_DATA, TEAM_MEMBERS } from '../data/portfolioData';
+import { TEAM_MEMBERS } from '../data/portfolioData';
 
-/**
- * Prima impresie. Nu vinde „web development", vinde senzația: ca mirosul de cafea
- * proaspătă care te trage de pe stradă în cafenea. Titlul e o propoziție spusă
- * unui om, nu o listă de servicii; stickerele spun în trei cuvinte ce ar fi
- * altfel un paragraf; bula de pe poză arată că în spatele site-ului sunt doi
- * oameni care răspund.
- */
 export const Hero: React.FC = () => (
-  <section id="top" className="relative overflow-hidden pb-24 pt-12 sm:pt-20">
-    {/* lumina caldă care respiră în spatele titlului */}
-    <div aria-hidden className="glow glow--hero" />
-
-    <div className="shell relative">
-      {/* stickere: ce ai afla oricum, dar mai târziu */}
-      <div className="reveal mb-8 flex flex-wrap items-center gap-2.5">
-        <span className="sticker sticker--ember">☕ {SITE.availability}</span>
-        <span className="sticker">✦ {PROJECTS_DATA.length} produse proprii, lansate</span>
-        <span className="sticker">✎ cod scris de mână, fără template-uri</span>
+  <section id="top" className="pb-24 pt-14 sm:pt-20">
+    <div className="shell">
+      {/* meta row */}
+      <div className="reveal mb-7 flex flex-wrap justify-between gap-3">
+        <span className="meta">{SITE.tagline}</span>
+        <span className="meta">{SITE.volume}</span>
       </div>
 
       {/* titlu */}
-      <h1 className="reveal display mb-8 max-w-5xl text-[clamp(2.5rem,6.2vw,5.4rem)]">
+      <h1 className="reveal display mb-8 max-w-5xl text-[clamp(2.3rem,6vw,5.1rem)]">
         Facem site-uri și aplicații pe care oamenii <em className="whitespace-nowrap">le simt</em>,
         nu doar le văd.
       </h1>
 
-      {/* povestea, pe scurt + cele două drumuri */}
-      <div className="reveal mb-12 grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
-        <p className="max-w-2xl text-[1.05rem] leading-relaxed text-muted">
-          Știi cafeneaua aia al cărei miros te trage de pe stradă înăuntru? Asta facem noi pentru
-          afacerea ta, pe internet: un site pe care îl deschizi și zici „hmm, îmi place de ei”.{' '}
+      {/* subtitlu + slogan, pe două coloane ca într-o revistă */}
+      <div className="reveal rule-gilt mb-12 grid gap-8 pt-7 md:grid-cols-[1.4fr_1fr]">
+        <p className="max-w-2xl text-[0.98rem] leading-relaxed text-muted">
+          Un site bun se simte, nu doar se vede: se încarcă repede, găsești ce cauți fără să te
+          chinui, iar la final îți vine să le scrii oamenilor care l-au făcut.{' '}
           <span className="text-white">
-            Suntem doi oameni care scriu fiecare linie de cod cu mâna lor, și vorbești direct cu noi.
+            Pentru asta lucrăm, în fiecare proiect. Suntem doi, scriem tot codul cu mâna noastră, iar
+            când ne scrii, îți răspunde unul dintre noi.
           </span>
         </p>
 
-        <div className="flex flex-wrap gap-3 md:justify-end">
-          <a href="#contact" className="btn btn--ember">
-            Hai să vorbim
-          </a>
-          <a href="#work" className="btn">
-            Vezi ce am construit
-          </a>
+        <div className="md:text-right">
+          <span className="eyebrow block">Motto</span>
+          <p className="display mt-2 text-[1.5rem] leading-tight text-white">„{SITE.slogan}”</p>
         </div>
       </div>
 
       {/*
-        Portretul nostru, pe tot cadrul, în culoare: oamenii cumpără de la oameni.
-        16:9 (nu 21:9 ca în template) pentru că la 21:9 nu încap ambele fețe fără
-        să taie bărbia.
+        Portretul nostru, pe tot cadrul. 16:9 (nu 21:9 ca in template) pentru ca
+        la 21:9 nu incap ambele fete fara sa taie barbia.
       */}
-      <figure className="photo reveal relative aspect-[16/9] w-full">
+      <figure className="tile reveal aspect-[16/9] w-full">
         <img
           src="/work/duo.webp"
           alt="Ana-Maria și George, cei doi fondatori Oops404"
-          className="photo__img size-full object-cover"
+          className="tile__art size-full object-cover"
         />
-        <figcaption className="bubble bubble--float absolute bottom-4 left-4 sm:bottom-7 sm:left-7">
-          <span className="bubble__dot" aria-hidden />
-          <span className="truncate">
-            {TEAM_MEMBERS.map((m) => m.name.split(' ').pop()).join(' & ')} · răspundem în aceeași zi
-          </span>
-        </figcaption>
       </figure>
 
-      {/* sloganul, ca o notă scrisă sub poză */}
-      <div className="reveal mt-6 flex flex-wrap items-baseline justify-between gap-3">
-        <p className="display text-[1.4rem] text-white sm:text-[1.7rem]">„{SITE.slogan}”</p>
-        <a href="#duo" className="link-draw text-[0.88rem] font-semibold">
+      {/* legenda de sub imagine, ca într-o revistă */}
+      <div className="reveal mt-4 flex flex-wrap items-baseline justify-between gap-3 border-t border-line-soft pt-4">
+        <span className="meta">
+          {TEAM_MEMBERS.map((m) => m.name).join(' & ')} · {SITE.location}
+        </span>
+        <a href="#duo" className="link-draw text-[0.78rem] font-bold uppercase tracking-wider2">
           Fă cunoștință cu noi ↓
         </a>
       </div>

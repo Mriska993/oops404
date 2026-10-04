@@ -5,26 +5,18 @@ import { SERVICES_DATA } from '../data/portfolioData';
 export const Services: React.FC = () => (
   <section id="services" className="scroll-mt-20 border-t border-line-soft bg-alt py-24 sm:py-28">
     <div className="shell">
-      <div className="reveal mb-12 grid gap-8 md:grid-cols-[1fr_1fr] md:items-end">
-        <div>
-          <span className="eyebrow">Ce facem</span>
-          <h2 className="display mt-3 text-[clamp(2.2rem,5.4vw,4rem)]">
-            Patru lucruri,
-            <br />
-            făcute <em>cu drag</em>.
-          </h2>
-        </div>
-        <p className="text-[0.98rem] leading-relaxed text-muted">
-          Nu facem de toate pentru toți. Facem exact astea patru, cu drag și cu încăpățânare, până
-          ies așa cum le-am promis.{' '}
-          <span className="text-white">Dacă ce ai nevoie nu e în listă, spune-ne oricum: știm pe cine să-ți recomandăm.</span>
+      <div className="reveal mb-10 flex flex-wrap items-end justify-between gap-4">
+        <h2 className="eyebrow">Ce facem</h2>
+        <p className="max-w-md text-[0.88rem] text-muted">
+          Nu facem de toate pentru toți, facem patru lucruri și le facem până la capăt, cu grijă la
+          detaliile pe care nimeni nu le cere, dar pe care toată lumea le simte.
         </p>
       </div>
 
       <div className="border-t border-line-soft">
         {SERVICES_DATA.map((s, i) => (
           <div key={s.id} className="row reveal group" style={{ transitionDelay: `${i * 70}ms` }}>
-            <span className="meta">{s.number}</span>
+            <span className="meta gilt">{s.number}</span>
 
             <div>
               <h3 className="display text-[1.6rem] leading-tight text-white sm:text-[1.9rem]">
@@ -45,9 +37,12 @@ export const Services: React.FC = () => (
                 ))}
               </ul>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1">
                 {s.techStack.map((t) => (
-                  <span key={t} className="sticker !text-[0.72rem] !font-semibold !text-muted">
+                  <span
+                    key={t}
+                    className="text-[0.7rem] font-bold uppercase tracking-wider2 text-dim"
+                  >
                     {t}
                   </span>
                 ))}

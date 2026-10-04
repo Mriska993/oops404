@@ -22,16 +22,8 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
     <section id="work" className="scroll-mt-20 border-t border-line-soft py-24 sm:py-28">
       <div className="shell">
         {/* controls */}
-        <div className="reveal mb-10">
-          <span className="eyebrow">Ce am construit</span>
-          <h2 className="display mt-3 max-w-3xl text-[clamp(2.2rem,5.4vw,4rem)]">
-            {PROJECTS_DATA.length} produse, toate ale noastre, de la prima idee la{' '}
-            <em>ultimul pixel</em>.
-          </h2>
-        </div>
-
         <div className="reveal mb-4 flex flex-wrap items-center justify-between gap-4 border-b border-line-soft pb-5">
-          <span className="meta">Capturi reale, de pe site-urile live</span>
+          <span className="eyebrow">Proiecte proprii</span>
           <div className="flex flex-wrap gap-6">
             {FILTERS.map((f) => (
               <button
@@ -46,8 +38,9 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
         </div>
 
         {/* invitatia la hover — altfel derularea trece neobservata */}
-        <p className="reveal mb-10 hidden text-[0.82rem] text-dim lg:block">
-          Ține cursorul pe o fereastră ca să o derulezi până jos. Un click deschide site-ul adevărat.
+        <p className="reveal mb-10 hidden text-[0.78rem] text-dim lg:block">
+          Capturi reale, de pe site-urile live. Ține cursorul pe o fereastră ca să o derulezi până
+          jos. Un click deschide site-ul adevărat.
         </p>
 
         {/* doua ferestre pe rand pe desktop, una pe mobil */}
@@ -99,7 +92,7 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
                   >
                     Case study
                   </button>
-                  <span className="meta">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="meta gilt">{String(i + 1).padStart(2, '0')}</span>
                 </div>
               </div>
             </article>
@@ -107,11 +100,10 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
         </div>
 
         {/* nota despre ce urmează */}
-        <p className="reveal mt-12 border-t border-line-soft pt-6 text-[0.9rem] leading-relaxed text-muted">
-          <span className="text-white">Niciunul nu e o comandă de la un client.</span> Sunt produse pe
-          care le-am gândit, desenat, scris și lansat noi, cu banii și cu timpul nostru. Le arătăm
-          pentru că sunt dovada cea mai cinstită a ce știm să facem, și a cât de mult ne pasă să
-          iasă bine.
+        <p className="reveal mt-12 border-t border-line-soft pt-6 text-[0.85rem] leading-relaxed text-muted">
+          <span className="text-white">Toate {PROJECTS_DATA.length} sunt ale noastre, nu comenzi de la clienți.</span>{' '}
+          Le-am gândit, desenat, scris și lansat noi, și le arătăm pentru că sunt dovada cea mai
+          cinstită a ce știm să facem.
         </p>
       </div>
     </section>

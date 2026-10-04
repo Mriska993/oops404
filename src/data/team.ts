@@ -10,7 +10,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Badea Ana-Maria',
     handle: '', // TODO: handle social, dacă vrei să apară
     role: 'Full-stack · Design',
-    bio: 'Scrie cod pe tot stack-ul, dar partea de design e a ei: identitate, layout, tipografie, tot ce face diferența dintre „încă un site" și ceva ce ții minte. Vine din vizualizare 3D și arhitecturală, se vede în cum construiește un ecran.',
+    bio: 'Scrie cod pe tot stack-ul, dar partea de design e a ei: identitate, layout, tipografie, tot ce face diferența dintre „încă un site" și ceva ce ții minte. Vine din vizualizare 3D și arhitectură, și se vede: construiește un ecran ca pe o cameră în care îți place să stai.',
     favoriteStack: ['TypeScript', 'React', 'Node.js', 'Figma', '3D & Arch Viz'],
     spotifyTrack: {
       title: '', // TODO
@@ -29,7 +29,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Done George',
     handle: '', // TODO: handle social, dacă vrei să apară
     role: 'Full-stack · Debugging',
-    bio: 'Scrie cod pe tot stack-ul, dar el e cel care sparge lucrurile înainte să o facă utilizatorii. Arhitectură, baze de date, deploy-uri — și bug-ul ăla pe care nimeni altcineva nu reușește să-l reproducă.',
+    bio: 'Scrie cod pe tot stack-ul, dar el e cel care sparge lucrurile înainte să le spargă utilizatorii: arhitectură, baze de date, servere, și bug-ul ăla pe care nimeni nu reușește să-l reproducă, dar pe care el îl găsește.',
     favoriteStack: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Docker'],
     spotifyTrack: {
       title: '', // TODO
