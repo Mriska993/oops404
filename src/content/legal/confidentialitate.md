@@ -92,7 +92,9 @@ Nu vindem date. Nu le dăm nimănui pentru marketing. Ajung la alții doar atât
 | Cine | Pentru ce | Unde |
 | --- | --- | --- |
 | {{hostingFurnizor}} | găzduirea site-ului și jurnalul de erori | {{hostingTara}} |
+{{#analytics}}
 | Google Ireland Ltd. | **doar dacă accepți** statisticile: Google Analytics | UE, cu transferuri în SUA |
+{{/analytics}}
 | Meta Platforms Ireland Ltd. | doar dacă ne scrii pe WhatsApp | UE, cu transferuri în SUA |
 
 Putem fi obligați să dăm date și autorităților, dacă o cer în condițiile legii. N-am avut până acum o astfel de cerere.
