@@ -18,7 +18,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 
 // pe Windows, `import()` cu o cale absolută eșuează („protocol 'd:'”) — trebuie file://
-const { render, ALL_ROUTES, headFor, lastModFor, ORIGIN, POSTS, lipsuriLegale } = await import(
+const { render, ALL_ROUTES, headFor, lastModFor, ORIGIN, POSTS, lipsuriLegale, llmsText } = await import(
   pathToFileURL(path.join(root, 'dist-ssr', 'entry-server.js')).href
 );
 
@@ -40,11 +40,18 @@ const headTags = (head) => {
     `<meta name="description" content="${escapeHtml(head.description)}" />`,
     `<meta name="robots" content="${head.noindex ? 'noindex, follow' : 'index, follow'}" />`,
     `<link rel="canonical" href="${head.canonical}" />`,
+    // o singură limbă; hreflang spune explicit că asta e varianta pentru toți
+    `<link rel="alternate" hreflang="ro" href="${head.canonical}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${head.canonical}" />`,
     `<meta property="og:type" content="${head.type}" />`,
     `<meta property="og:title" content="${escapeHtml(head.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(head.description)}" />`,
     `<meta property="og:url" content="${head.canonical}" />`,
     `<meta property="og:image" content="${image}" />`,
+    `<meta property="og:image:alt" content="${escapeHtml(head.title)}" />`,
+    ...(head.image === '/brand/og.png'
+      ? [`<meta property="og:image:width" content="1200" />`, `<meta property="og:image:height" content="630" />`]
+      : []),
     `<meta property="og:locale" content="ro_RO" />`,
     `<meta property="og:site_name" content="OOPS404" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
@@ -151,16 +158,37 @@ ${post.tags.map((tag) => `      <category>${escapeXml(tag)}</category>`).join('\
 
 /* ---------- robots ---------- */
 
+/*
+  Toată lumea are voie, inclusiv roboții motoarelor cu AI: vrem să apărem și în
+  răspunsurile lor, nu doar în lista de linkuri. Îi numim explicit ca să nu fie
+  loc de interpretare; „Allow: /" singur e uneori citit ca „nu s-a gândit nimeni".
+*/
 write(
   'robots.txt',
   `User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
 Allow: /
 
 Sitemap: ${ORIGIN}/sitemap.xml
 `
 );
 
-console.log(`  sitemap.xml · rss.xml · robots.txt`);
+/* ---------- llms.txt ---------- */
+
+write('llms.txt', llmsText());
+
+console.log(`  sitemap.xml · rss.xml · robots.txt · llms.txt`);
 console.log(`\nPrerender gata: ${routes.length + 1} pagini.`);
 
 /* ---------- avertismente ---------- */

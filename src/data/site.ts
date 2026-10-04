@@ -11,8 +11,8 @@ export const SITE = {
   volume: 'Volumul 2026',
   availability: 'Disponibili · 2 sloturi',
 
-  // TODO: o adresă pe domeniul Oops404. Asta e adresa Depozio, alt brand.
-  email: 'contact@depozio.ro',
+  // redirecționată către căsuțele celor doi
+  email: 'contact@oops404.ro',
 
   /** Ambele numere. TODO: dacă vrei să apară cui aparține fiecare, spune-mi. */
   phones: [

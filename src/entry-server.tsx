@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import App from './App';
 
-export { ALL_ROUTES, headFor, lastModFor, ORIGIN } from './lib/seo';
+export { ALL_ROUTES, headFor, lastModFor, ORIGIN, llmsText } from './lib/seo';
 export { POSTS } from './lib/blog';
 export { lipsuriLegale } from './data/legal';
 

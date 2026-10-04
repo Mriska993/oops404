@@ -173,6 +173,7 @@ Build-ul scrie lista la fiecare deploy. Momentan:
 
 | Unde | Ce | De ce contează |
 | --- | --- | --- |
-| `src/data/legal.ts` → `hosting.furnizor` | numele furnizorului de găzduire | apare în politică ca împuternicit; acum scrie `[furnizorul de găzduire]` |
-| `src/data/legal.ts` → `analytics.ga4Id` | ID-ul GA4 (`G-…`) | fără el nu apare nici bannerul, nici Analytics |
-| `src/data/site.ts` → `email` | o adresă pe `oops404.ro` | acum e `contact@depozio.ro`, adresa altui brand — inclusiv pentru cererile GDPR |
+| `src/data/legal.ts` → `analytics.ga4Id` | ID-ul GA4 (`G-…`) | fără el nu apare nici bannerul, nici Analytics; până atunci site-ul nu face nicio cerere în afara domeniului |
+| `src/data/legal.ts` → `firma` | CUI, Reg. Com., sediu | abia după înregistrarea firmei; până atunci operatorii de date sunt cei doi, cu numele |
+
+Completate pe 4 octombrie 2026: adresa de contact (`contact@oops404.ro`) și furnizorul de găzduire (Chroot Network SRL + Ploi B.V.).

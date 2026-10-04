@@ -43,20 +43,18 @@ export const LEGAL = {
     banca: '',
   },
 
-  /**
-   * Adresa pentru cereri GDPR. Momentan e aceeași cu cea de contact.
-   * TODO: mutată pe domeniul propriu odată cu restul (vezi TODO-ul din site.ts).
-   */
+  /** Adresa pentru cereri GDPR. E aceeași cu cea de contact. */
   emailConfidentialitate: SITE.email,
 
   /**
    * Cine ne găzduiește site-ul. Apare în politica de confidențialitate ca
-   * împuternicit — logurile de acces conțin IP-uri.
-   * TODO: completează furnizorul real și țara serverului.
+   * împuternicit — jurnalul de erori conține IP-uri.
+   * Serverul (89.42.42.70) e în rețeaua Chroot Network SRL, Dobroești, Ilfov,
+   * și e administrat prin panoul Ploi (Ploi B.V., Olanda), care are acces la el.
    */
   hosting: {
-    furnizor: '',
-    tara: 'România',
+    furnizor: 'Chroot Network SRL (serverul) și Ploi B.V. (panoul de administrare)',
+    tara: 'România, respectiv Olanda',
   },
 
   /**

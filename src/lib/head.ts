@@ -45,12 +45,14 @@ export const useHead = (pathname: string): void => {
     setMeta('name', 'description', head.description);
     setMeta('name', 'robots', head.noindex ? 'noindex, follow' : 'index, follow');
     setLink('canonical', url);
+    setLink('alternate', url);
 
     setMeta('property', 'og:type', head.type);
     setMeta('property', 'og:title', head.title);
     setMeta('property', 'og:description', head.description);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', `https://${SITE.domain}${head.image}`);
+    setMeta('property', 'og:image:alt', head.title);
     setMeta('property', 'og:locale', 'ro_RO');
     setMeta('property', 'og:site_name', SITE.name);
 
