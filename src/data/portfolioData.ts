@@ -7,9 +7,9 @@ export const SERVICES_DATA: Service[] = [
   {
     id: 'web-os',
     number: '01',
-    title: 'Websites & Portfolios OS',
-    tagline: 'Experiențe digitale cinematice, gândite să domine prima impresie.',
-    description: 'Construim site-uri de prezentare și portofolii personalizate pixel-cu-pixel. Fiecare detaliu transmite autoritate, rafinament, viteză instantă și un aer premium.',
+    title: 'Site-uri care spun o poveste',
+    tagline: 'Prima impresie durează trei secunde. Facem să conteze.',
+    description: 'Site-uri de prezentare și portofolii desenate de la zero, pentru afacerea ta și pentru oamenii care o caută. Rapide, calde, cu fiecare detaliu la locul lui, ca vizitatorul să rămână, să citească și să-ți scrie.',
     deliverables: [
       'Design arhitectural unic (Mobile / Tablet / Desktop)',
       'Optimizare extremă SEO & Core Web Vitals (99/100)',
@@ -22,9 +22,9 @@ export const SERVICES_DATA: Service[] = [
   {
     id: 'app-os',
     number: '02',
-    title: 'Full-Stack Apps & SaaS OS',
-    tagline: 'De la o viziune schițată la o platformă scalabilă și sigură.',
-    description: 'Dezvoltăm aplicații web complexe, dashboard-uri administrative, platforme cu autentificare securizată, baze de date optimizate și API-uri de mare viteză.',
+    title: 'Aplicații care țin o afacere în picioare',
+    tagline: 'De la o schiță pe șervețel la o platformă pe care te poți baza.',
+    description: 'Aplicații web, panouri de administrare, platforme cu conturi și plăți. Arhitectură gândită să crească odată cu tine și cod scris să fie înțeles și peste doi ani, de oricine.',
     deliverables: [
       'Autentificare securizată (OAuth, Passkeys, Magic Links)',
       'Baze de date optimizate (PostgreSQL, Supabase, Redis)',
@@ -37,9 +37,9 @@ export const SERVICES_DATA: Service[] = [
   {
     id: 'commerce-os',
     number: '03',
-    title: 'E-Commerce & Digital Store OS',
-    tagline: 'Magazine online construite pentru conversii rapide, nu pentru frustrări.',
-    description: 'Livrăm experiențe de cumpărare rapide pe orice ecran. Coș fluid, plăți securizate cu cardul sau Apple/Google Pay și sincronizare automată de comenzi.',
+    title: 'Magazine online în care e plăcut să cumperi',
+    tagline: 'Coș simplu, plată fără emoții, comenzi care ajung singure la curier.',
+    description: 'Magazine rapide pe orice ecran, cu checkout scurt și plăți sigure cu cardul sau Apple/Google Pay. Tu te ocupi de produse și de clienți, restul merge singur.',
     deliverables: [
       'Checkout optimizat în 1-2 pași',
       'Integrare plăți (Stripe, Netopia, PayU, Apple Pay)',
@@ -52,9 +52,9 @@ export const SERVICES_DATA: Service[] = [
   {
     id: 'experience-os',
     number: '04',
-    title: 'UI/UX & Brand Direction OS',
-    tagline: 'Transformăm un site lent sau învechit într-un magnet de clienți.',
-    description: 'Audităm complet interfața ta actuală, identificăm unde pierzi vizitatori și reconstruim experiența digitală pentru un impact maxim.',
+    title: 'Un suflu nou pentru un site obosit',
+    tagline: 'Ai deja un site, dar nu-ți mai place de el? Îl aducem la zi.',
+    description: 'Ne uităm cu atenție la ce ai acum, găsim unde pierzi oamenii și reconstruim experiența: mai clară, mai rapidă, mai a ta. Fără să o iei de la zero dacă nu e nevoie.',
     deliverables: [
       'Audit UX detaliat & identificare blocaje conversie',
       'Design System modern & prototipuri interactive',
@@ -74,70 +74,70 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: 'faq-1',
     question: 'De ce sloganul "No clue, but somehow it works"?',
-    answer: 'Este mottoul nostru asumat și modul sincer de a spune că în era tehnologiei moderne, nu pretindem că suntem o corporație rigidă cu răspunsuri din cărți învechite — ci doi ingineri care au curiozitatea, determinarea și abilitatea tehnică de a rezolva ABSOLUT orice provocare digitală până când produsul final funcționează impecabil.',
-    tag: 'PHILOSOPHY'
+    answer: 'Pentru că e adevărat, și pentru că ne place să râdem de noi. Nu suntem o corporație cu răspunsuri gata scrise. Suntem doi oameni curioși și încăpățânați, care nu se lasă până când lucrul pe care l-au promis chiar funcționează. Sloganul e felul nostru de a spune: relaxează-te, se rezolvă.',
+    tag: 'Despre noi'
   },
   {
     id: 'faq-2',
     question: 'Cât durează realizarea unui site sau a unei aplicații?',
-    answer: 'Un site de prezentare sau portofoliu custom durează în general între 1 și 2 săptămâni. O aplicație web mai complexă sau un magazin online custom durează între 3 și 5 săptămâni. Lucrăm în sprinturi rapide și transparente cu preview-uri în timp real.',
-    tag: 'TIMELINE'
+    answer: 'Un site de prezentare sau un portofoliu durează, de obicei, între 1 și 2 săptămâni. O aplicație web sau un magazin online, între 3 și 5 săptămâni. Lucrăm în pași mici și vizibili: ai un link pe care vezi progresul în fiecare zi, nu o surpriză la final.',
+    tag: 'Timp'
   },
   {
     id: 'faq-3',
     question: 'Folosiți șabloane generice de WordPress?',
-    answer: 'Zero șabloane prefabricate. Fiecare linie de cod este scrisă de noi cu tehnologii moderne (Next.js, React, Tailwind, TypeScript), personalizată pe brandul și cerințele tale.',
-    tag: 'ENGINEERING'
+    answer: 'Nu. Fiecare linie de cod e scrisă de noi, pentru tine. Un șablon arată ca alte zece mii de site-uri și se strică exact când ai nevoie de el. Ce construim noi e al tău, îl înțelegem până la ultimul detaliu și îl putem schimba oricând.',
+    tag: 'Cod'
   },
   {
     id: 'faq-4',
     question: 'Voi putea să editez conținutul singur după lansare?',
-    answer: 'Da! Dacă ai nevoie să actualizezi texte, poze sau produse, îți configurăm un panou de administrare intuitiv sau un CMS simplu și îți facem un scurt video demonstrativ de 5 minute ca să te descurci fără nicio bătaie de cap.',
-    tag: 'CONTROL'
+    answer: 'Da. Dacă vrei să schimbi texte, poze sau produse, îți pregătim un panou de administrare simplu și îți facem un video de 5 minute în care îți arătăm tot. Și dacă te blochezi, ne scrii. Nu dispărem după lansare.',
+    tag: 'După'
   },
   {
     id: 'faq-5',
     question: 'Cum începem o colaborare?',
-    answer: 'Ne trimiți un mesaj rapid pe WhatsApp sau prin formularul de mai jos, ne povestești în câteva cuvinte ce ai vrea să construiești, stabilim o scurtă discuție și îți facem o propunere clară cu etape și costuri.',
-    tag: 'START'
+    answer: 'Ne scrii pe WhatsApp sau prin formularul de mai jos, cum i-ai povesti unui prieten: ce faci, ce te deranjează acum, ce ți-ar plăcea să ai. Vorbim o jumătate de oră, apoi primești o propunere clară, cu pași și costuri. Fără obligații.',
+    tag: 'Start'
   }
 ];
 
 export const ESTIMATOR_PROJECT_TYPES: EstimatorOption[] = [
   {
     id: 'presentation',
-    label: 'Site de Prezentare / Portofoliu',
-    description: 'Design arhitectural unic, SEO & optimizare maximă',
+    label: 'Site de prezentare sau portofoliu',
+    description: 'Design făcut pentru tine, rapid, găsit ușor pe Google',
     basePrice: 600,
     durationWeeks: 1.5,
   },
   {
     id: 'webapp',
-    label: 'Aplicație Web / SaaS MVP',
-    description: 'Bază de date, login utilizatori, panou de control, dashboard',
+    label: 'Aplicație web sau platformă',
+    description: 'Conturi, bază de date, panou de administrare, rapoarte',
     basePrice: 1400,
     durationWeeks: 3.5,
   },
   {
     id: 'ecommerce',
-    label: 'Magazin Online / E-Commerce',
-    description: 'Catalog produse, coș de cumpărături, plăți card, AWB curier',
+    label: 'Magazin online',
+    description: 'Catalog, coș, plată cu cardul, AWB la curier',
     basePrice: 1000,
     durationWeeks: 2.5,
   },
   {
     id: 'revamp',
-    label: 'Redesign & Optimizare Site Existent',
-    description: 'Upgrade vizual, optimizare de viteză, curățare cod',
+    label: 'Un suflu nou pentru site-ul actual',
+    description: 'Aspect nou, viteză mai bună, cod curățat',
     basePrice: 450,
     durationWeeks: 1,
   }
 ];
 
 export const ESTIMATOR_ADDONS: { id: string; label: string; price: number; timeDays: number }[] = [
-  { id: 'cms', label: 'Panou Admin / CMS pentru editare autonomă texte & poze', price: 150, timeDays: 3 },
-  { id: 'auth', label: 'Autentificare avansată utilizatori & securitate', price: 200, timeDays: 4 },
-  { id: 'payments', label: 'Integrare Plăți Online & Facturare Automată', price: 250, timeDays: 4 },
-  { id: 'custom-animations', label: 'Efecte 3D & Animații interactive WOW', price: 180, timeDays: 3 },
-  { id: 'seo-boost', label: 'Pachet SEO Avansat & Structurare Date Google', price: 120, timeDays: 2 }
+  { id: 'cms', label: 'Panou de administrare, ca să-ți schimbi singur textele și pozele', price: 150, timeDays: 3 },
+  { id: 'auth', label: 'Conturi de utilizator și autentificare sigură', price: 200, timeDays: 4 },
+  { id: 'payments', label: 'Plăți online și facturare automată', price: 250, timeDays: 4 },
+  { id: 'custom-animations', label: 'Animații și efecte care fac site-ul memorabil', price: 180, timeDays: 3 },
+  { id: 'seo-boost', label: 'Pachet SEO, ca să te găsească Google mai ușor', price: 120, timeDays: 2 }
 ];

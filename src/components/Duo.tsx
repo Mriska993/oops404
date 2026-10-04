@@ -14,24 +14,28 @@ export const Duo: React.FC = () => (
             <em>Zero intermediari.</em>
           </h2>
         </div>
-        <p className="text-[0.95rem] leading-relaxed text-muted">
+        <p className="text-[0.98rem] leading-relaxed text-muted">
           Nu suntem o agenție cu 40 de angajați și un account manager care traduce greșit ce ai spus.
-          Suntem noi doi, și vorbești direct cu noi de la primul mesaj până după lansare.{' '}
+          Suntem noi doi, și vorbești cu noi de la primul mesaj până mult după lansare.{' '}
           <span className="text-white">
-            Amândoi lucrăm full-stack — diferă doar unde ne place să petrecem mai mult timp.
+            Amândoi scriem cod pe tot stack-ul. Diferă doar unde ne place să petrecem mai mult timp.
           </span>
         </p>
       </div>
 
-      <div className="grid gap-px border border-line bg-line md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         {TEAM_MEMBERS.map((m, i) => (
-          <article key={m.name} className="reveal bg-bg p-7 sm:p-9" style={{ transitionDelay: `${i * 90}ms` }}>
+          <article key={m.name} className="card reveal p-7 sm:p-9" style={{ transitionDelay: `${i * 90}ms` }}>
             <div className="flex items-start justify-between gap-4 border-b border-line-soft pb-6">
               <div>
                 <span className="meta">{m.avatarText}</span>
                 <h3 className="display mt-2 text-[2rem] leading-none">{m.name}</h3>
-                <p className="mt-2 text-[0.8rem] font-bold uppercase tracking-wider2 text-muted">
-                  {m.role}
+                <p className="mt-3 flex flex-wrap gap-2">
+                  {m.role.split(' · ').map((r) => (
+                    <span key={r} className="sticker !text-[0.72rem]">
+                      {r}
+                    </span>
+                  ))}
                 </p>
               </div>
 
@@ -41,26 +45,25 @@ export const Duo: React.FC = () => (
 
             <p className="display italic mt-6 text-[1.35rem] leading-snug text-white">„{m.quote}”</p>
 
-            <div className="mt-7 flex flex-wrap gap-x-4 gap-y-2 border-t border-line-soft pt-5">
+            <div className="mt-7 flex flex-wrap gap-x-4 gap-y-2 border-t border-line-soft pt-5 text-[0.78rem] font-semibold text-dim">
               {m.favoriteStack.map((t) => (
-                <span key={t} className="text-[0.72rem] font-bold uppercase tracking-wider2 text-dim">
-                  {t}
-                </span>
+                <span key={t}>{t}</span>
               ))}
             </div>
           </article>
         ))}
       </div>
 
-      <div className="reveal mt-5 grid gap-px border border-line bg-line sm:grid-cols-3">
+      <div className="reveal mt-5 grid gap-5 sm:grid-cols-3">
         {[
-          { t: 'Vorbim direct', d: 'Ai numărul nostru, nu al unui call center.' },
-          { t: 'Cod, nu template', d: 'Zero teme cumpărate, zero plugin-uri lipite.' },
-          { t: 'Rămânem după', d: 'Nu dispărem a doua zi după lansare.' },
+          { e: '📞', t: 'Vorbim direct', d: 'Ai numărul nostru, nu al unui call center.' },
+          { e: '✎', t: 'Cod, nu template', d: 'Zero teme cumpărate, zero plugin-uri lipite.' },
+          { e: '☕', t: 'Rămânem după', d: 'Nu dispărem a doua zi după lansare.' },
         ].map((p) => (
-          <div key={p.t} className="bg-bg p-6">
-            <h4 className="display text-[1.25rem] text-white">{p.t}</h4>
-            <p className="mt-1.5 text-[0.85rem] leading-relaxed text-muted">{p.d}</p>
+          <div key={p.t} className="card p-6">
+            <span aria-hidden className="text-[1.3rem]">{p.e}</span>
+            <h4 className="display mt-3 text-[1.3rem] text-white">{p.t}</h4>
+            <p className="mt-1.5 text-[0.88rem] leading-relaxed text-muted">{p.d}</p>
           </div>
         ))}
       </div>

@@ -106,7 +106,7 @@ export const Header: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTermina
             </button>
 
             <a href={`mailto:${SITE.email}`} className="btn btn--ember mt-10 w-full">
-              Scrie-ne
+              Hai să vorbim
             </a>
           </div>
         </div>,

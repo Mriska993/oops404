@@ -24,11 +24,15 @@ const fisierCss = path.join(root, 'src', 'styles', 'fonts.css');
 
 const URL_GOOGLE =
   'https://fonts.googleapis.com/css2' +
-  // O singură familie, pentru tot site-ul: Manrope e un sans geometric, curat,
-  // care rămâne lizibil și pe telefon la corp mic (fără liniile subțiri ale unui
-  // Didone). Interval, nu greutăți separate: e font variabil, deci un singur
-  // fișier acoperă tot de la 300 la 800, iar browserul interpolează între ele.
-  '?family=Manrope:wght@300..800' +
+  // Fraunces la titluri: un serif moale, cu curbe („SOFT" la maxim și „WONK"
+  // pornit — formele vechi, calde, ca o literă desenată de mână), cu italic
+  // adevărat pentru citate. Se leagă de „Oops"-ul serif din logo.
+  '?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,100,1;1,9..144,300..700,100,1' +
+  // Plus Jakarta Sans la text: geometric, cu terminații rotunjite, prietenos și
+  // lizibil pe telefon. E același font de corp ca pe 3bobite — site-urile
+  // studioului se simt din aceeași familie.
+  // Intervale, nu greutăți separate: fonturi variabile, un singur fișier acoperă tot.
+  '&family=Plus+Jakarta+Sans:wght@400..800' +
   '&display=swap';
 
 /**

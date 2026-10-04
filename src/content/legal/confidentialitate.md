@@ -81,7 +81,7 @@ Momentan nu avem instalat niciun instrument de statistici. Dacă adăugăm unul,
 
 ### Fonturile
 
-Site-ul folosește fontul Manrope, **găzduit pe serverul nostru**. Nu se încarcă de la Google și de nicăieri din afară.
+Site-ul folosește fonturile Fraunces și Plus Jakarta Sans, **găzduite pe serverul nostru**. Nu se încarcă de la Google și de nicăieri din afară.
 
 Detaliul ăsta merită explicat, pentru că foarte multe site-uri îl ratează: un font luat de pe serverele Google înseamnă că adresa ta IP ajunge la Google la fiecare pagină, înainte de orice banner și de orice acord, doar ca să se vadă literele cum trebuie. E o transmitere reală de date personale către un terț. Noi am descărcat fișierele o dată și le servim de la noi, deci **terțul nu mai există**.
 

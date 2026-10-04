@@ -134,7 +134,7 @@ export const PROJECTS_DATA: Project[] = [
     title: '3bobite',
     category: 'web',
     categoryLabel: 'Carnet de sănătate pentru animale',
-    tagline: 'Carnetul de sănătate al animalului tău, la tine în buzunar.',
+    tagline: 'Pentru că ei nu pot vorbi, dar ne iubesc necondiționat.',
     description:
       'Carnetul de sănătate al câinelui sau pisicii tale, ținut de tine: vaccinuri, deparazitări, greutate, documente și o pagină de urgență pe care orice veterinar o deschide de pe un cod QR. Gratuit, fără reclame, în română.',
     fullStory:
@@ -153,15 +153,15 @@ export const PROJECTS_DATA: Project[] = [
       { label: 'Reclame', value: '0' },
       { label: 'Urgență de pe QR', value: '30 s' },
     ],
-    // Fraunces = titluri, Atkinson Hyperlegible = text.
-    fontPairing: 'Fraunces / Atkinson Hyperlegible',
+    // Tema „Circul Bucuriei" (oct 2026): Baloo 2 la titluri, Plus Jakarta Sans la text.
+    fontPairing: 'Baloo 2 / Plus Jakarta Sans',
     liveUrl: 'https://3bobite.ro',
     image: '/work/3bobite.webp',
     shot: '/work/shots/3bobite.webp',
     status: 'in_progress',
-    // Culorile luate de pe site (fundal crem, bleumarin) și din logo (coral).
-    color: '#1F2A44',
-    paletteSwatches: ['#1F2A44', '#F3ECDA', '#FE5C4D', '#FFFFFF', '#6B7A8C'],
+    // Culorile temei noi: liliac pe fundal, coral din logo, galben și mov din stickere.
+    color: '#8B5CF6',
+    paletteSwatches: ['#152238', '#EDE7F6', '#FF5A4E', '#8B5CF6', '#FFD13B'],
   },
   {
     id: 'notata',

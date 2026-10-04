@@ -26,7 +26,7 @@ const STEPS = [
   {
     n: '04',
     title: 'Lansăm și rămânem',
-    time: 'ongoing',
+    time: 'și după',
     text: 'Punem totul pe servere rapide, configurăm domeniul, SEO, analytics. Îți facem un video de 5 minute cum administrezi tot. Și rămânem disponibili după.',
     out: 'Site live + acces complet + suport',
   },
@@ -45,12 +45,12 @@ export const Process: React.FC = () => (
           <h2 className="display mt-3 text-[clamp(2.2rem,5.4vw,4rem)] text-ink">
             De la „am o idee”
             <br />
-            la <em>„e live”</em>.
+            la <em>„uite, e live!”</em>
           </h2>
         </div>
-        <p className="text-[0.95rem] leading-relaxed text-black/60">
-          Fără contracte de 40 de pagini, fără ședințe de status care nu duc nicăieri. Patru pași,
-          fiecare cu un rezultat pe care îl poți vedea și atinge.
+        <p className="text-[0.98rem] leading-relaxed text-black/60">
+          Fără contracte de 40 de pagini, fără ședințe care nu duc nicăieri. Patru pași, fiecare cu
+          un rezultat pe care îl poți vedea și atinge, și cu noi la telefon tot drumul.
         </p>
       </div>
 
@@ -69,9 +69,7 @@ export const Process: React.FC = () => (
 
             <div>
               <h3 className="display text-[1.7rem] leading-tight text-ink">{s.title}</h3>
-              <span className="mt-1.5 inline-block text-[0.72rem] font-bold uppercase tracking-wider2 text-black/45">
-                {s.time}
-              </span>
+              <span className="sticker mt-3 !text-[0.72rem]">⏱ {s.time}</span>
             </div>
 
             <div>

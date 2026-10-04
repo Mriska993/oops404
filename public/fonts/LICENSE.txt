@@ -1,11 +1,14 @@
 Fonturile din acest folder sunt redistribuite sub SIL Open Font License 1.1,
 care permite explicit găzduirea lor pe serverul propriu.
 
-  Manrope — © 2018 Mikhail Sharanda, © 2019 Mirko Velimirovic
-            https://github.com/sharanda/manrope
+  Fraunces          — © 2020 Undercase Type (Phaedra Charles, Flavia Zimbardi)
+                      https://github.com/undercasetype/Fraunces
+
+  Plus Jakarta Sans — © 2020 Tokotype (Gumpita Rahayu)
+                      https://github.com/tokotype/PlusJakartaSans
 
 Textul complet al licenței: https://openfontlicense.org
-(sau fișierul OFL.txt din depozitul de mai sus)
+(sau fișierul OFL.txt din fiecare depozit de mai sus)
 
 Fișierele .woff2 de aici sunt subseturi (latin + latin-ext) generate de Google
 Fonts și descărcate de `node scripts/fetch-fonts.mjs`. Nu le edita manual —

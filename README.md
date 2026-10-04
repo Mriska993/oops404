@@ -85,7 +85,7 @@ urgentă, dar nu trece neobservat.
 
 ### Fonturile sunt găzduite local
 
-Manrope stă în `public/fonts/`, nu pe serverele Google. Un `<link>`
+Fraunces și Plus Jakarta Sans stau în `public/fonts/`, nu pe serverele Google. Un `<link>`
 către `fonts.googleapis.com` trimite adresa IP a fiecărui vizitator către Google
 înainte de orice consimțământ, doar ca să se încarce literele — o transmitere de
 date personale către un terț pentru care nu există temei. Găzduite la noi, terțul

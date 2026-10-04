@@ -22,10 +22,12 @@
       Google inainte de orice consimtamant. Fisierele si @font-face-urile sunt aduse
       de `node scripts/fetch-fonts.mjs`.
 
-      Preincarcam doar subsetul `latin` — singurul fisier de care are nevoie orice
-      pagina in prima secunda. `latin-ext` (diacriticele) se cere singur, cand apare.
+      Preincarcam doar subsetul `latin` al celor doua familii — fisierele de care
+      are nevoie orice pagina in prima secunda. `latin-ext` (diacriticele) si
+      italicul se cer singure, cand apar.
     -->
-    <link rel="preload" href="/fonts/manrope-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/plus-jakarta-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   </head>
   <body>
     <div id="root"></div>

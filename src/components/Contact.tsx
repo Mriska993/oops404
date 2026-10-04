@@ -31,7 +31,12 @@ export const Contact: React.FC = () => {
       {/* FAQ */}
       <section id="faq" className="scroll-mt-20 border-t border-line-soft py-24 sm:py-28">
         <div className="shell">
-          <h2 className="reveal eyebrow mb-10">Întrebări frecvente</h2>
+          <div className="reveal mb-10">
+            <span className="eyebrow">Întrebări frecvente</span>
+            <h2 className="display mt-3 text-[clamp(2rem,4.6vw,3.2rem)]">
+              Ce ne întreabă <em>toată lumea</em>.
+            </h2>
+          </div>
 
           <div className="border-t border-line-soft">
             {FAQ_DATA.map((item) => {
@@ -43,7 +48,9 @@ export const Contact: React.FC = () => {
                     aria-expanded={isOpen}
                     className="flex w-full items-start gap-5 py-6 text-left"
                   >
-                    <span className="meta hidden w-28 shrink-0 pt-2 sm:block">{item.tag}</span>
+                    <span className="hidden w-28 shrink-0 pt-2 sm:block">
+                      <span className="sticker !text-[0.7rem]">{item.tag}</span>
+                    </span>
                     <span
                       className={`display flex-1 text-[1.35rem] leading-tight transition-colors sm:text-[1.7rem] ${
                         isOpen ? 'text-white' : 'text-white/75'
@@ -78,8 +85,9 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="scroll-mt-20 border-t border-line-soft bg-alt py-24 sm:py-28">
-        <div className="shell">
+      <section id="contact" className="relative scroll-mt-20 overflow-hidden border-t border-line-soft bg-alt py-24 sm:py-28">
+        <div aria-hidden className="glow glow--contact" />
+        <div className="shell relative">
           <div className="reveal grid gap-14 lg:grid-cols-[1fr_1fr]">
             <div>
               <span className="eyebrow">Hai să vorbim</span>
@@ -88,9 +96,10 @@ export const Contact: React.FC = () => {
                 <br />
                 <em>Restul rezolvăm noi.</em>
               </h2>
-              <p className="mt-6 max-w-md text-[0.95rem] leading-relaxed text-muted">
-                Nu trebuie să ai un brief perfect. O idee vagă și două exemple de site-uri care îți
-                plac sunt suficiente ca să pornim.
+              <p className="mt-6 max-w-md text-[0.98rem] leading-relaxed text-muted">
+                Nu-ți trebuie un brief. Scrie-ne cum i-ai povesti unui prieten, la o cafea: ce faci,
+                ce te deranjează acum și două site-uri care îți plac.{' '}
+                <span className="text-white">De aici ne descurcăm noi.</span>
               </p>
 
               <div className="mt-10 border-t border-line-soft">
@@ -119,7 +128,7 @@ export const Contact: React.FC = () => {
             <form onSubmit={sendMail} className="space-y-7">
               <div className="grid gap-7 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="c-name" className="meta mb-1 block">
+                  <label htmlFor="c-name" className="meta mb-2 block">
                     Cum te cheamă
                   </label>
                   <input
@@ -132,7 +141,7 @@ export const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="c-contact" className="meta mb-1 block">
+                  <label htmlFor="c-contact" className="meta mb-2 block">
                     Email sau telefon
                   </label>
                   <input
@@ -148,13 +157,14 @@ export const Contact: React.FC = () => {
 
               <div>
                 <span className="meta mb-3 block">Buget aproximativ</span>
-                <div className="flex flex-wrap gap-x-6 gap-y-2">
+                <div className="flex flex-wrap gap-2">
                   {BUDGETS.map((b) => (
                     <button
                       key={b}
                       type="button"
                       onClick={() => setBudget(b)}
-                      className={`tab ${budget === b ? 'is-active' : ''}`}
+                      aria-pressed={budget === b}
+                      className={`sticker ${budget === b ? 'sticker--ember' : ''}`}
                     >
                       {b}
                     </button>
@@ -163,13 +173,13 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="c-brief" className="meta mb-1 block">
+                <label htmlFor="c-brief" className="meta mb-2 block">
                   Ce vrei să construim
                 </label>
                 <textarea
                   id="c-brief"
                   className="field min-h-[120px] resize-y"
-                  placeholder="Am nevoie de un site de prezentare pentru cabinetul meu. Îmi place cum arată X și Y..."
+                  placeholder="Am un cabinet și site-ul de acum nu mă reprezintă. Îmi place cum arată X și Y…"
                   value={brief}
                   onChange={(e) => setBrief(e.target.value)}
                   required
@@ -195,7 +205,7 @@ export const Contact: React.FC = () => {
               <p className="meta">
                 {sent === 'mail' && 'Se deschide aplicația ta de email cu mesajul completat.'}
                 {sent === 'wa' && 'Se deschide WhatsApp cu mesajul completat.'}
-                {!sent && 'Răspundem în maximum 24h. De obicei mult mai repede.'}
+                {!sent && 'Răspundem în aceeași zi. De obicei în câteva ore.'}
               </p>
 
               {/*
