@@ -89,10 +89,10 @@ export const Budget: React.FC = () => {
             </div>
 
             {/* extra */}
-            <span className={`eyebrow mt-10 block ${typeId ? '' : 'opacity-40'}`}>
+            <span className={`eyebrow mt-10 block ${typeId ? '' : 'opacity-60'}`}>
               02 — Ai nevoie și de
             </span>
-            <div className={`mt-4 border-t border-line-soft ${typeId ? '' : 'opacity-40'}`}>
+            <div className={`mt-4 border-t border-line-soft ${typeId ? '' : 'opacity-60'}`}>
               {ESTIMATOR_ADDONS.map((a) => {
                 const on = addons.includes(a.id);
                 return (
@@ -162,7 +162,7 @@ export const Budget: React.FC = () => {
                 href={whatsappLink(message)}
                 target="_blank"
                 rel="noreferrer"
-                className={`btn btn--ember mt-7 w-full ${type ? '' : 'pointer-events-none opacity-30'}`}
+                className={`btn btn--ember mt-7 w-full ${type ? '' : 'pointer-events-none opacity-50'}`}
               >
                 Trimite pe WhatsApp
               </a>

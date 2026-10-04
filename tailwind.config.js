@@ -13,7 +13,7 @@ export default {
         'line-soft': 'rgba(255,255,255,0.07)',
         white: '#FAFAFA',
         muted: '#8E8E99',
-        dim: '#6A6A75',
+        dim: '#8A8A95',
         signal: '#22C55E',
         // Din logo: portocaliul-roșu de pe „s", roșul liniilor „404", cărămiziul din mijlocul gradientului.
         ember: '#E4501F',

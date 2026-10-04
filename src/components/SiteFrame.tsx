@@ -72,6 +72,8 @@ export const SiteFrame: React.FC<{ project: Project }> = ({ project }) => {
       <div className="frame__screen">
         <img
           src={project.shot}
+          srcSet={project.shot ? `${project.shot.replace(/.webp$/, '-640.webp')} 640w, ${project.shot} 1200w` : undefined}
+          sizes="(min-width: 1024px) 45vw, 92vw"
           alt={`Site-ul ${project.title}, captură de pe ${host}`}
           loading="lazy"
           decoding="async"

@@ -23,7 +23,7 @@ export const Work: React.FC<{ onOpenProject: (p: Project) => void }> = ({ onOpen
       <div className="shell">
         {/* controls */}
         <div className="reveal mb-4 flex flex-wrap items-center justify-between gap-4 border-b border-line-soft pb-5">
-          <span className="eyebrow">Proiecte proprii</span>
+          <h2 className="eyebrow">Proiecte proprii</h2>
           <div className="flex flex-wrap gap-6">
             {FILTERS.map((f) => (
               <button

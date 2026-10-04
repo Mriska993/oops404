@@ -23,7 +23,8 @@
   --paper: #F4F2ED;
   --white: #FAFAFA;
   --muted: #8E8E99;
-  --dim: #6A6A75;
+  /* 5,3:1 pe fundal: etichetele mici trebuie să treacă de AA, nu doar să „se vadă" */
+  --dim: #8A8A95;
   --line: rgba(255, 255, 255, 0.13);
   --line-soft: rgba(255, 255, 255, 0.07);
 
@@ -54,7 +55,7 @@
   --em-c: #E4501F;
   --ghost: rgba(27, 25, 23, 0.16);
   --muted: rgba(27, 25, 23, 0.6);
-  --dim: rgba(27, 25, 23, 0.42);
+  --dim: rgba(27, 25, 23, 0.58);
   --line: rgba(27, 25, 23, 0.18);
   --line-soft: rgba(27, 25, 23, 0.14);
 }

@@ -39,9 +39,16 @@ export const Hero: React.FC = () => (
         la 21:9 nu incap ambele fete fara sa taie barbia.
       */}
       <figure className="tile reveal aspect-[16/9] w-full">
+        {/* e elementul LCP: se încarcă primul, iar pe telefon vine varianta de 1000px */}
         <img
           src="/work/duo.webp"
+          srcSet="/work/duo-1000.webp 1000w, /work/duo.webp 2000w"
+          sizes="(min-width: 1400px) 1288px, 92vw"
           alt="Ana-Maria și George, cei doi fondatori Oops404"
+          width={2000}
+          height={1334}
+          fetchPriority="high"
+          decoding="async"
           className="tile__art size-full object-cover"
         />
       </figure>
