@@ -24,10 +24,11 @@ const fisierCss = path.join(root, 'src', 'styles', 'fonts.css');
 
 const URL_GOOGLE =
   'https://fonts.googleapis.com/css2' +
-  '?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700' +
-  // interval, nu greutăți separate: Syne e font variabil, deci un singur fișier
-  // acoperă tot de la 400 la 800, iar browserul interpolează între ele
-  '&family=Syne:wght@400..800' +
+  // O singură familie, pentru tot site-ul: Manrope e un sans geometric, curat,
+  // care rămâne lizibil și pe telefon la corp mic (fără liniile subțiri ale unui
+  // Didone). Interval, nu greutăți separate: e font variabil, deci un singur
+  // fișier acoperă tot de la 300 la 800, iar browserul interpolează între ele.
+  '?family=Manrope:wght@300..800' +
   '&display=swap';
 
 /**
@@ -108,7 +109,7 @@ const continut = `/*
 
   Sursa: ${URL_GOOGLE}
   Adus la: ${new Date().toISOString().slice(0, 10)}
-  Licență: SIL Open Font License 1.1 (ambele familii)
+  Licență: SIL Open Font License 1.1
 */
 
 ${pastrate

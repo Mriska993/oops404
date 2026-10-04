@@ -23,8 +23,8 @@ export default {
         ink: '#1B1917',
       },
       fontFamily: {
-        display: ['Bodoni Moda', 'Georgia', 'serif'],
-        sans: ['Syne', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         wider2: '0.12em',

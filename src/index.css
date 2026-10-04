@@ -7,7 +7,8 @@
 
 /* =========================================================
    OOPS404 — editorial, pe limbajul template-ului studio-prism,
-   cu identitatea din logo: Bodoni (Didone) la display, Syne cu tracking larg,
+   cu identitatea din logo: o singură familie, Manrope (sans geometric, curat,
+   lizibil și pe telefon), cu titluri grele și strânse față de textul curent;
    monocrom + un singur accent cald (portocaliul-roșu de pe „s"-ul din logo),
    grayscale care se colorează la hover. Logoul în sine e imaginea din public/brand, 1:1.
    ========================================================= */
@@ -63,7 +64,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--white);
-  font-family: 'Syne', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -113,35 +114,39 @@ body {
 }
 
 /* ---------- TIPOGRAFIE ---------- */
+/*
+  Titlurile: aceeași familie ca textul, dar grele și strânse. Contrastul vine din
+  greutate și corp, nu din schimbarea fontului — de aici aerul minimalist.
+  Spațierea negativă contează mai ales la majuscule, care altfel se răsfiră.
+*/
 .display {
-  font-family: 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
-  font-weight: 400;
-  font-optical-sizing: auto;
-  line-height: 1.02;
-  letter-spacing: 0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 700;
+  /* la majuscule, virgula de sub Ș/Ț coboară sub linia de bază; sub 1.1 atinge rândul următor */
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 /*
-  Cuvântul accentuat din titlu: Syne 800 ca în template, dar colorat cu gradientul
-  de pe „Oops" și cu o copie decalată dedesubt (drop-shadow, ca să meargă cu
+  Cuvântul accentuat din titlu: greutatea maximă, colorat cu gradientul de pe
+  „Oops" și cu o copie decalată dedesubt (drop-shadow, ca să meargă cu
   background-clip: text).
 */
 .display em {
-  font-family: 'Syne', sans-serif;
-  /* Syne se lățește mult odată cu grosimea: la 800 cuvântul ieșea prea întins.
-     700 + corp puțin mai mic + spațiere mai strânsă = același accent, mai îngust. */
-  font-weight: 700;
-  font-size: 0.95em;
+  font-weight: 800;
   font-style: normal;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   background-image: linear-gradient(90deg, var(--em-a) 0%, var(--em-b) 58%, var(--em-c) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   filter: drop-shadow(0.035em 0.035em 0 var(--ghost));
 }
-/* în Bodoni, italicul e cel mai frumos lucru din familie — pentru citate */
+/* citatele: Manrope nu are italic, iar unul sintetizat arată strâmb;
+   le deosebim prin greutate mai mică, nu prin înclinare */
 .display.italic {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 .eyebrow {
@@ -609,7 +614,7 @@ body {
   border: 0;
   border-bottom: 1px solid var(--line);
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-size: 0.95rem;
   transition: border-color 0.3s ease;
 }
@@ -680,9 +685,10 @@ body {
 
 .prose-editorial h2,
 .prose-editorial h3 {
-  font-family: 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
-  font-weight: 400;
-  line-height: 1.12;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
   color: var(--white);
   scroll-margin-top: 6rem;
 }
@@ -755,9 +761,10 @@ body {
   margin-bottom: 2.2em;
   padding-left: 1.6rem;
   border-left: 1px solid var(--ember);
-  font-family: 'Bodoni Moda', 'Bodoni 72', Didot, Georgia, serif;
-  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
-  font-style: italic;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
   line-height: 1.45;
   color: var(--white);
 }

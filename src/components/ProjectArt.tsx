@@ -54,13 +54,13 @@ export const ProjectArt: React.FC<{ project: Project; index: number; src?: strin
       <circle cx="52" cy="27" r="6" fill={soft} />
       <circle cx="74" cy="27" r="6" fill={soft} />
       <rect x="104" y="14" width="330" height="26" rx="13" fill={page} opacity="0.75" />
-      <text x="122" y="32" fill={ink} opacity="0.55" fontFamily="Syne, sans-serif" fontSize="14" fontWeight="600">
+      <text x="122" y="32" fill={ink} opacity="0.55" fontFamily="Manrope, sans-serif" fontSize="14" fontWeight="600">
         {url}
       </text>
 
       {/* nav-ul site-ului mockup */}
       <rect x="0" y="54" width="1200" height="1" fill={soft} />
-      <text x="60" y="104" fill={ink} fontFamily="Syne, sans-serif" fontSize="17" fontWeight="800" letterSpacing="2">
+      <text x="60" y="104" fill={ink} fontFamily="Manrope, sans-serif" fontSize="17" fontWeight="800" letterSpacing="2">
         {project.title.toUpperCase()}
       </text>
       {[0, 1, 2].map((i) => (
@@ -74,8 +74,10 @@ export const ProjectArt: React.FC<{ project: Project; index: number; src?: strin
           x="60"
           y={250 + i * 96}
           fill={ink}
-          fontFamily="Marcellus, Georgia, serif"
+          fontFamily="Manrope, sans-serif"
           fontSize="96"
+          fontWeight="700"
+          letterSpacing="-3"
         >
           {w}
         </text>
@@ -111,8 +113,9 @@ export const ProjectArt: React.FC<{ project: Project; index: number; src?: strin
         textAnchor="end"
         fill={ink}
         opacity="0.28"
-        fontFamily="Marcellus, Georgia, serif"
+        fontFamily="Manrope, sans-serif"
         fontSize="64"
+        fontWeight="700"
       >
         {String(index + 1).padStart(2, '0')}
       </text>

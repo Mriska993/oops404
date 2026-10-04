@@ -21,7 +21,7 @@ import { SITE } from './site';
 
 export const LEGAL = {
   /** Data de la care se aplică versiunea curentă a documentelor. */
-  actualizat: '2026-09-16',
+  actualizat: '2026-10-04',
 
   /** Devine `true` când OOPS404 e SRL/PFA înregistrat. */
   inregistrata: false,
